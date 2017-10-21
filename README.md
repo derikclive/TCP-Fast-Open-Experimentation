@@ -9,12 +9,12 @@ avoiding severe security threats.
 
 ### Installation instructions
 
-## mget
+#### mget, mininet
+
+###### Run the below command.
 
 ```
-chmod +x mget_setup.sh
 python run.py
-
 ```
 
 ### References
