@@ -7,6 +7,16 @@ TCP Fast Open (TFO) is an experimental update to TCP that enables data to be
 exchanged safely during TCP's connection handshake. It does so to save one RTT, while
 avoiding severe security threats.
 
+### Installation instructions
+
+## mget
+
+```
+chmod +x mget_setup.sh
+python run.py
+
+```
+
 ### References
 [1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317.
 
