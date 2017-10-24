@@ -12,3 +12,6 @@ if __name__ == '__main__':
  
     configure('sudo ./mget_setup.sh')
     configure('sudo ./mininet_setup.sh') # Given in reproducing networks page to run this twice.
+
+    subprocess.call(["chmod", "+x" , "download.sh"])
+    configure(' sudo /bin/bash download.sh')
