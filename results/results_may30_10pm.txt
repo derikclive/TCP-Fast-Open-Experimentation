@@ -1,0 +1,172 @@
+====== nyt ======
+  cubic
+0
+    Delay (ms): 20
+    Time for transfer 14.19
+
+    Delay (ms): 100
+    Time for transfer 36.34
+
+    Delay (ms): 200
+    Time for transfer 69.15
+
+519
+    Delay (ms): 20
+    Time for transfer 12.04
+
+    Delay (ms): 100
+    Time for transfer 24.29
+
+    Delay (ms): 200
+    Time for transfer 44.68
+
+  westwood
+0
+    Delay (ms): 20
+    Time for transfer 14.16
+
+    Delay (ms): 100
+    Time for transfer 36.01
+
+    Delay (ms): 200
+    Time for transfer 67.25
+
+519
+    Delay (ms): 20
+    Time for transfer 12.02
+
+    Delay (ms): 100
+    Time for transfer 24.1
+
+    Delay (ms): 200
+    Time for transfer 43.28
+
+====== amazon ======
+  cubic
+0
+    Delay (ms): 20
+    Time for transfer 17.09
+
+    Delay (ms): 100
+    Time for transfer 32.06
+
+    Delay (ms): 200
+    Time for transfer 58.58
+
+519
+    Delay (ms): 20
+    Time for transfer 16.17
+
+    Delay (ms): 100
+    Time for transfer 25.43
+
+    Delay (ms): 200
+    Time for transfer 44.98
+
+  westwood
+0
+    Delay (ms): 20
+    Time for transfer 17.05
+
+    Delay (ms): 100
+    Time for transfer 32.53
+
+    Delay (ms): 200
+    Time for transfer 59.01
+
+519
+    Delay (ms): 20
+    Time for transfer 16.17
+
+    Delay (ms): 100
+    Time for transfer 25.9
+
+    Delay (ms): 200
+    Time for transfer 45.36
+
+====== wiki_tcp ======
+  cubic
+0
+    Delay (ms): 20
+    Time for transfer 1.72
+
+    Delay (ms): 100
+    Time for transfer 4.02
+
+    Delay (ms): 200
+    Time for transfer 7.71
+
+519
+    Delay (ms): 20
+    Time for transfer 1.53
+
+    Delay (ms): 100
+    Time for transfer 2.88
+
+    Delay (ms): 200
+    Time for transfer 5.43
+
+  westwood
+0
+    Delay (ms): 20
+    Time for transfer 1.72
+
+    Delay (ms): 100
+    Time for transfer 4.04
+
+    Delay (ms): 200
+    Time for transfer 7.6
+
+519
+    Delay (ms): 20
+    Time for transfer 1.54
+
+    Delay (ms): 100
+    Time for transfer 2.85
+
+    Delay (ms): 200
+    Time for transfer 5.4
+
+====== wsj ======
+  cubic
+0
+    Delay (ms): 20
+    Time for transfer 28.98
+
+    Delay (ms): 100
+    Time for transfer 45.73
+
+    Delay (ms): 200
+    Time for transfer 80.08
+
+519
+    Delay (ms): 20
+    Time for transfer 27.94
+
+    Delay (ms): 100
+    Time for transfer 39.01
+
+    Delay (ms): 200
+    Time for transfer 63.01
+
+  westwood
+0
+    Delay (ms): 20
+    Time for transfer 29.16
+
+    Delay (ms): 100
+    Time for transfer 48.42
+
+    Delay (ms): 200
+    Time for transfer 77.36
+
+519
+    Delay (ms): 20
+    Time for transfer 27.95
+
+    Delay (ms): 100
+    Time for transfer 39.05
+
+    Delay (ms): 200
+    Time for transfer 60.46
+

@@ -1,18 +1,9 @@
-import subprocess
+import os
 
-def configure(cmd):
-    subprocess.Popen(cmd, shell=True).communicate()
+os.system('sudo sh mininet_setup.sh')
 
-if __name__ == '__main__':
+os.system('sudo sh mget_setup.sh')
 
-    subprocess.call(["chmod", "+x" , "mget_setup.sh"])
-    configure("sudo ./mget_setup.sh")
+os.system('sudo sh mininet_setup.sh')
 
-    configure('chmod +x mininet_setup.sh')
-
-    configure('sudo ./mget_setup.sh')
-    configure('sudo ./mininet_setup.sh') # Given in reproducing networks page to run this twice.
-
-
-    #this has to run without sudo as using sudo creates a locked folder
-    #configure('/bin/bash download.sh')
+os.system('sudo ./run.sh')

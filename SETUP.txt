@@ -1,0 +1,53 @@
+===============================================================================
+INSTALLING MININET
+
+We used options 3 and 4 from
+
+http://mininet.org/download/
+
+as well as
+
+sudo apt-get install help2man
+
+===============================================================================
+INSTALLING MGET
+
+To install mget, please follow the instructions at:
+
+https://github.com/rockdaboot/mget
+
+Note that if you are using Ubuntu 14.04, you can do the following to install 
+the dependencies for mget (taken from
+https://github.com/rockdaboot/mget/issues/28):
+
+sudo apt-get install autoconf autogen automake libtool gtk-doc-tools xsltproc\
+ gettext zlib1g-dev liblzma-dev libbz2-dev libgnutls-dev libidn2-0-dev flex \
+libssl-dev
+
+Finally, after sudo make install, don't forget to create the hidden file,
+
+~/.mgetrc
+
+It can be a blank file.
+
+===============================================================================
+CREATING THE DOWNNLOADED WEBPAGES
+
+To download home pages and their respective resources, just save the website 
+from Chrome. The index.html URLs will automaticaly be converted to link to 
+local resources. 
+
+
+setting tcp modules and seeing which ones are available
+modprobe -a tcp_*
+ls /lib/modules/`uname -r`/kernel/net/ipv4/
+
+
+sudo paste -d" " -s top_200_sites.txt
+python results_parser.py results.txt
+
+baidu.com
+qq.com
+
+some sites have a permission denied when trying wget on their sites.
+have to figure out how to get around that for the wget time measurements 

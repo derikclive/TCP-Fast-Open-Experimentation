@@ -1,0 +1,303 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+@font-face {
+	font-family:'UPS Berlingske Sans';
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-Rg.eot');
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-Rg.eot?#iefix')format('embedded-opentype'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-Rg.woff2')format('woff2'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-Rg.woff')format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'UPS Berlingske Sans';
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-It.eot');
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-It.eot?#iefix')format('embedded-opentype'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-It.woff2')format('woff2'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Sans/Web/UPSBerlingskeSans-It.woff')format('woff');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family:'UPS Berlingske Serif Tx';
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-Bd.eot');
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-Bd.eot?#iefix')format('embedded-opentype'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-Bd.woff2')format('woff2'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-Bd.woff')format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'UPS Berlingske Serif Tx';
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-XBd.eot');
+	src:	url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-XBd.eot?#iefix')format('embedded-opentype'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-XBd.woff2')format('woff2'),
+			url('//s3.amazonaws.com/wsjcsbucket/fonts/86407_ups/UPS_Berlingske_Serif_Text/Web/UPSBerlingskeSerifTx-XBd.woff')format('woff');
+	font-weight: 800;
+	font-style: normal;
+}
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+body {
+    font: 12px/18px 'UPS Berlingske Sans';
+}
+
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.main-container {
+    height: 1048px;
+    width: 298px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #DEDAD6;
+    overflow: hidden;
+}
+
+.header-area img {
+    width: 298px;
+}
+
+.subheading {
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    width: 240px;
+    padding: 0 0 0 20px;
+    color: rgb(93, 22, 22);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#logo {
+    cursor: pointer;
+}
+
+#loader {
+    background: url(./../img/ajax-loader.gif) no-repeat center center;
+    position: absolute;
+    height: 777px; /* $('#article-zone').height() */
+    width: 290px; /* total width - 2px border - 4px padding (8 total)*/
+}
+/* global border styles */
+.border {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 0px 10px;
+}
+
+.article-slot {
+    overflow: hidden;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.article-slot:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.article-slot a {
+    text-decoration: none;
+    color: black;
+}
+
+#article-zone {
+    font-family: 'UPS Berlingske Sans';
+    font-size: 12px;
+    font-weight: normal;
+    padding: 4px 4px 0 4px;
+    overflow: hidden;
+}
+
+.article-title {
+    font-family: 'UPS Berlingske Serif Tx';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1e0000;
+    text-align: left;
+    vertical-align: top;
+    margin-bottom: 2px;
+}
+
+.read-more {
+    font-weight: 700;
+}
+.snippet {
+    font-size: 10px;
+    line-height: 12px;
+    color: black;
+    vertical-align: top;
+}
+
+.image-slot {
+    float: left;
+    margin: 0 8px 12px 0;
+}
+.underline {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    font-family: 'Verdana';
+    position: absolute;
+    top: 230px;
+    font-size: 8px;
+    line-height: 9px;
+    padding: 0 42px;
+    width: 210px;
+}
+
+.arrows {
+    font-family: 'UPS Berlingske Sans';
+    font-size: 7px;
+    font-weight: 700;
+  	font-style: normal;
+    line-height: 4px;
+}
+
+#see-more {
+    position: absolute;
+    top: 994px;
+    margin: 0 0 0 -4px;
+    cursor: pointer;
+}
+
+.wsjcs-bottom-disclaimer {
+    position: absolute;
+    font-family: "Verdana";
+    top: 1024px;
+    font-size: 10px;
+    line-height: 12px;
+    width: 270px;
+    margin: 0 0 0 20px;
+}
+
+.read-more-block {
+    display: inline-block;
+}
+
+/* 1st image */
+
+.first-article-title {
+    margin-top: 10px;
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.first-image-slot {
+    max-width: 100%;
+}

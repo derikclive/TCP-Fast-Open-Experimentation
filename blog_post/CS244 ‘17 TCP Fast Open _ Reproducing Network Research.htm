@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://reproducingnetworkresearch.wordpress.com/?p=10589 -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CS244 ‘17 TCP Fast Open | Reproducing Network Research</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://reproducingnetworkresearch.wordpress.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://s0.wp.com/wp-content/themes/pub/oxygen/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<script>
+	( function() {
+		var query = document.location.search;
+
+		if ( query && query.indexOf( 'preview=true' ) !== -1 ) {
+			window.name = 'wp-preview-10589';
+		}
+
+		if ( window.addEventListener ) {
+			window.addEventListener( 'unload', function() { window.name = ''; }, false );
+		}
+	}());
+	</script>
+	<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="Reproducing Network Research » Feed" href="https://reproducingnetworkresearch.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Reproducing Network Research » Comments Feed" href="https://reproducingnetworkresearch.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Reproducing Network Research » CS244 ‘17 TCP Fast Open Comments Feed" href="https://reproducingnetworkresearch.wordpress.com/?p=10589/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1488818651h&ver=4.7.5"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource" type="text/css" media="all">
+<style id="wpcom-admin-bar-inline-css" type="text/css">
+.goog-te-banner-frame { top:32px !important }
+</style>
+<link rel="stylesheet" id="screen-css-1-1" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/style.css" type="text/css" media="screen">
+<link rel="stylesheet" id="font-droid-serif-css" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-4-1" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(1)" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-5-1" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/global-print.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-6-1" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(2)" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(3)"></script><style type="text/css"></style>
+<link rel="stylesheet" id="all-css-0-2" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://reproducingnetworkresearch.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="CS244 ’16: Why Flow Completion Time is the Right Metric for Congestion Control (Rate Control Protocol)" href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-why-flow-completion-time-is-the-right-metric-for-congestion-control-rate-control-protocol/">
+<meta name="generator" content="WordPress.com">
+<link rel="shortlink" href="http://wp.me/p2tUUZ-2KN">
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS244 ‘17 TCP Fast Open">
+<meta property="og:url" content="https://reproducingnetworkresearch.wordpress.com/?p=10589">
+<meta property="og:description" content="Team: Jason Chen (cheson@) and Naoki Eto (naokieto@) TCP Fast Open Goal: The TCP Fast Open (TFO) paper by Radhakrishnan et al seeks to reduce the latency of the three-way handshake for initializing…">
+<meta property="article:published_time" content="-001-11-30T00:00:00+00:00">
+<meta property="article:modified_time" content="2017-06-03T19:37:03+00:00">
+<meta property="og:site_name" content="Reproducing Network Research">
+<meta property="og:image" content="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png">
+<meta property="og:image:width" content="1236">
+<meta property="og:image:height" content="1014">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:text:title" content="CS244 ‘17 TCP Fast Open">
+<meta name="twitter:image" content="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=240">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://reproducingnetworkresearch.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://reproducingnetworkresearch.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://reproducingnetworkresearch.wordpress.com/osd.xml" title="Reproducing Network Research">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="theme-color" content="#ffffff">
+	<style type="text/css">
+		#page {
+			background-color: #ffffff		}
+	</style>
+	<style>
+		html {
+			font-size: 17px;
+		}
+		h1, h2, h3, h4, h5, h6, dl dt, blockquote, blockquote blockquote blockquote, .site-title, .main-navigation a, .widget_calendar caption {
+			font-family: 'Droid Serif', sans-serif;
+		}
+		.error, .entry-title a, .entry-content a, entry-summary a, .main-navigation > div > ul > li > a, .widget a, .post-navigation a, #image-navigation a, .pingback a, .logged-in-as a, .more-articles .entry-title a:hover, .widget_flickr #flickr_badge_uber_wrapper a {
+			color: #0da4d3;
+		}
+		a:hover, .comment-meta a, .comment-meta a:visited {
+			border-color: #0da4d3;
+		}
+		a.read-more, a.read-more:visited, .pagination a:hover, .comment-navigation a:hover, button, html input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span {
+			background-color: #0da4d3;
+		}
+	</style>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+				<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Reproducing Network Research"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="network systems experiments made accessible, runnable, and reproducible"><meta name="msapplication-task" content="name=Edit post;action-uri=https://wordpress.com/post/reproducingnetworkresearch.wordpress.com/10589;icon-uri=https://s2.wp.com/i/icons/post.ico"><meta name="msapplication-task" content="name=Write a post;action-uri=https://wordpress.com/post/reproducingnetworkresearch.wordpress.com;icon-uri=https://s2.wp.com/i/icons/post.ico"><meta name="msapplication-task" content="name=Upload new media;action-uri=https://reproducingnetworkresearch.wordpress.com/wp-admin/media-new.php;icon-uri=https://s2.wp.com/i/icons/media.ico"><meta name="title" content="CS244 ‘17 TCP Fast Open | Reproducing Network Research on WordPress.com">
+<meta name="description" content="Team: Jason Chen (cheson@) and Naoki Eto (naokieto@) TCP Fast Open Goal: The TCP Fast Open (TFO) paper by Radhakrishnan et al seeks to reduce the latency of the three-way handshake for initializing TCP connections from 1-3 RTTs to 0 RTTs. Motivation: Many connections are short-lived with only a few RTTs, thus the handshake forms a significant…">
+<link rel="amphtml" href="https://reproducingnetworkresearch.wordpress.com/?p=10589/amp/"><style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style type="text/css" id="custom-colors-css">.menu-secondary li a:hover{background-color:#000}.menu-secondary li a:hover{background-color:rgba(0,0,0,.2)}.menu-secondary li{border-color:#252525}.menu-secondary li{border-color:rgba(37,37,37,.1)}.menu-secondary li a,.menu-secondary li.current-menu-item li a,.menu-secondary li.current-page-item li a{color:#ccc}.menu-secondary li li a{color:#888}.menu-secondary li.current-menu-item a,.menu-secondary li.current-page-item a{color:#7f7f7f}.menu-secondary li.current-menu-item li a:hover,.menu-secondary li.current-page-item li a:hover{color:#fff}body{background-color:#f4f4f4}.error,.entry-title a,.entry-content a,entry-summary a,.main-navigation>div>ul>li>a,.widget a,.post-navigation a,#image-navigation a,.pingback a,.logged-in-as a,.more-articles .entry-title a:hover,.widget_flickr #flickr_badge_uber_wrapper a{color:#026f90}a:hover,.comment-meta a,.comment-meta a:visited{border-color:#026f90}a.read-more,a.read-more:visited,.pagination a:hover,.comment-navigation a:hover,button,html input[type="button"],input[type="reset"],input[type="submit"],#infinite-handle span{background-color:#026f90}.entry-title a:hover,.entry-meta a:hover,.page-links a:hover,.comment-meta a:hover,.widget ul li a:hover,.widget_flickr #flickr_badge_uber_wrapper a:hover{color:#000}.menu-secondary,.menu-secondary li,.menu-secondary li a{background-color:#111}</style>
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(4)">
+		<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/services.css"></head>
+
+<body class="post-template-default single single-post postid-10589 single-format-standard logged-in admin-bar no-customize-support mp6 customizer-styles-applied group-blog highlander-enabled highlander-light custom-colors">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+						<h1 class="site-title"><a href="https://reproducingnetworkresearch.wordpress.com/" title="Reproducing Network Research" rel="home">Reproducing Network Research</a></h1>
+			<h2 class="site-description">network systems experiments made accessible, runnable, and reproducible</h2>
+		</hgroup>
+
+		
+		
+		<nav role="navigation" class="site-navigation main-navigation clear-fix">
+			<h1 class="assistive-text">Main Menu</h1>
+			<div class="assistive-text skip-link"><a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#content" title="Skip to content">Skip to content</a></div>
+
+			<div class="menu"><ul>
+<li class="page_item page-item-559"><a href="https://reproducingnetworkresearch.wordpress.com/gallery/">Projects</a></li>
+<li class="page_item page-item-2"><a href="https://reproducingnetworkresearch.wordpress.com/about/">About</a></li>
+<li class="page_item page-item-955"><a href="https://reproducingnetworkresearch.wordpress.com/contribute/">Contribute</a></li>
+</ul></div>
+		</nav>
+	</header><!-- #masthead .site-header -->
+
+	<div id="main" class="clear-fix">
+		<div id="primary" class="site-content">
+			<div id="content" role="main">
+
+			
+				
+<article id="post-10589" class="clear-fix post-10589 post type-post status-draft format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		<h1 class="entry-title">CS244 ‘17 TCP Fast Open</h1>
+
+		<div class="entry-meta">
+			<span class="entry-date"><a href="https://reproducingnetworkresearch.wordpress.com/?p=10589" title="7:37 pm" rel="bookmark"><time class="entry-date" datetime="2017-06-03T19:37:41+00:00" pubdate="">June 3, 2017</time></a></span>			<span class="sep">·</span>
+			<span class="byline">by <span class="author vcard"><a class="url fn n" href="https://reproducingnetworkresearch.wordpress.com/author/eviltcp/" title="View all posts by eviltcp" rel="author">eviltcp</a></span></span>			<span class="sep">·</span>
+			Bookmark the <a href="https://reproducingnetworkresearch.wordpress.com/?p=10589" title="Permalink to CS244 ‘17 TCP Fast Open" rel="bookmark">permalink</a>.			<span class="sep">·</span>
+			<span class="edit-link"><a class="post-edit-link" href="https://wordpress.com/post/reproducingnetworkresearch.wordpress.com/10589">Edit</a></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content clear-fix">
+		<p><b>Team:&nbsp;</b>Jason Chen&nbsp;(cheson@) and Naoki Eto (naokieto@)</p>
+<p><b>TCP Fast Open Goal: </b></p>
+<p><span style="font-weight:400;">The TCP Fast Open (TFO) paper by Radhakrishnan et al seeks to reduce the latency of the three-way handshake for initializing TCP connections from 1-3 RTTs to 0 RTTs. </span></p>
+<p><b>Motivation:</b></p>
+<p><span style="font-weight:400;">Many connections are short-lived with only a few RTTs, thus the handshake forms a significant overhead cost. In modern webpages, we see a trend of larger webpages consisting of many relatively smaller web objects and resources. To load each site the browser must initiate tens or even hundreds of independent TCP connections with various servers and content providers.</span></p>
+<p><span style="font-weight:400;">There is a 1 RTT delay introduced for each vanilla TCP connection before clients and servers can actually exchange meaningful data. TFO seeks to reduce that delay to 0 RTTs such that requests can be sent along with the initial SYN packet from client to server, and servers can immediately send response data back with their SYN-ACK packets.</span></p>
+<p><span style="font-weight:400;">This idea seems simple, but having servers send data before establishing a full connection allows malicious users to conduct amplified DDOS attacks by making GET requests with spoofed source IP addresses. This paper contributes a mechanism of security cookies to make TFO possible in practice.</span></p>
+<p><span style="font-weight:400;">The paper provides the following figure to demonstrate&nbsp;TFO:</span></p>
+<p><img data-attachment-id="11315" data-permalink="https://reproducingnetworkresearch.wordpress.com/?attachment_id=11315#main" data-orig-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=485&amp;h=398" data-orig-size="1236,1014" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2017-06-01 at 7.55.16 PM" data-image-description="" data-medium-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=485&amp;h=398?w=300" data-large-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=485&amp;h=398?w=470" class="  wp-image-11315 aligncenter" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/screen-shot-2017-06-01-at-7-55-16-pm.png" alt="Screen Shot 2017-06-01 at 7.55.16 PM" width="485" height="398" srcset="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=485&amp;h=398 485w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=970&amp;h=796 970w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=150&amp;h=123 150w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=300&amp;h=246 300w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-06-01-at-7-55-16-pm.png?w=768&amp;h=630 768w" sizes="(max-width: 485px) 100vw, 485px"></p>
+<p><b>Results:</b></p>
+<p><span style="font-weight:400;">The authors evaluated their TFO implementation in two experiments. First, they measured the improvement in download times by a TFO-enabled Chrome browser visiting four popular sites. They found that the average page load time (PLT) showed an improvement of between 4% and 41% when using TFO to download pages as opposed to non-TFO.</span></p>
+<p><img data-attachment-id="11319" data-permalink="https://reproducingnetworkresearch.wordpress.com/?attachment_id=11319#main" data-orig-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=470" data-orig-size="2090,866" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2017-05-19 at 2.21.49 PM" data-image-description="" data-medium-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=470?w=300" data-large-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=470?w=470" class=" size-full wp-image-11319 aligncenter" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/screen-shot-2017-05-19-at-2-21-49-pm.png" alt="Screen Shot 2017-05-19 at 2.21.49 PM" srcset="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=470 470w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=940 940w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=150 150w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=300 300w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-2-21-49-pm.png?w=768 768w" sizes="(max-width: 470px) 100vw, 470px"></p>
+<p><span style="font-weight:400;">The authors also ran an experiment that measured the performance impact of running TFO on servers by running a client generating HTTP 1.0 requests at a constant rate fetching 5 KB web pages. At different number of connections made per second, they recorded the CPU utilization on the server and found that the TFO-enabled servers actually performed on par with vanilla TCP servers.</span></p>
+<p><img data-attachment-id="11320" data-permalink="https://reproducingnetworkresearch.wordpress.com/?attachment_id=11320#main" data-orig-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=345&amp;h=281" data-orig-size="1130,920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2017-05-19 at 4.42.07 PM" data-image-description="" data-medium-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=345&amp;h=281?w=300" data-large-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=345&amp;h=281?w=470" class="  wp-image-11320 aligncenter" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/screen-shot-2017-05-19-at-4-42-07-pm.png" alt="Screen Shot 2017-05-19 at 4.42.07 PM" width="345" height="281" srcset="https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=345&amp;h=281 345w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=690&amp;h=562 690w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=150&amp;h=122 150w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/screen-shot-2017-05-19-at-4-42-07-pm.png?w=300&amp;h=244 300w" sizes="(max-width: 345px) 100vw, 345px"></p>
+<p><b>Subset Goal and Motivation:</b></p>
+<p><span style="font-weight:400;">We aim to reproduce the results from Table 1. </span><b></b><span style="font-weight:400;">The download time experiment was well-documented in the paper and seemed feasible to reproduce using existing tools in Python and Mininet. More importantly, we believe that this experiment embodies what is most impactful about TFO. It is ultimately clients that will engage and benefit from TFO the most, and it is important for us to verify that the described benefits of TFO still hold true for clients today.</span></p>
+<p><b>Subset Results:</b></p>
+<p><span style="font-weight:400;">* Note that PLT is Page Loading Time *</span></p>
+<table style="height:474px;" width="631">
+<tbody>
+<tr>
+<td><b>Page</b></td>
+<td><b>RTT (ms)</b></td>
+<td><b>PLT: Non-TFO (s)</b></td>
+<td><b>PLT: TFO (s)</b></td>
+<td><b>Improvement</b></td>
+</tr>
+<tr>
+<td rowspan="3">
+<b>amazon.com</b></td>
+<td><b>20</b></td>
+<td><b>17.07</b></td>
+<td><b>16.17</b></td>
+<td><b>5%</b></td>
+</tr>
+<tr>
+<td><b>100</b></td>
+<td><b>32.05</b></td>
+<td><b>25.43</b></td>
+<td><b>21%</b></td>
+</tr>
+<tr>
+<td><b>200</b></td>
+<td><b>58.56</b></td>
+<td><b>44.97</b></td>
+<td><b>23%</b></td>
+</tr>
+<tr>
+<td rowspan="3">
+<b>nytimes.com</b></td>
+<td><b>20</b></td>
+<td><b>14.13</b></td>
+<td><b>12.02</b></td>
+<td><b>15%</b></td>
+</tr>
+<tr>
+<td><b>100</b></td>
+<td><b>36.3</b></td>
+<td><b>24.26</b></td>
+<td><b>33%</b></td>
+</tr>
+<tr>
+<td><b>200</b></td>
+<td><b>69.13</b></td>
+<td><b>44.67</b></td>
+<td><b>35%</b></td>
+</tr>
+<tr>
+<td rowspan="3">
+<b>wsj.com</b></td>
+<td><b>20</b></td>
+<td><b>29.02</b></td>
+<td><b>27.93</b></td>
+<td><b>4%</b></td>
+</tr>
+<tr>
+<td><b>100</b></td>
+<td><b>45.89</b></td>
+<td><b>39.02</b></td>
+<td><b>15%</b></td>
+</tr>
+<tr>
+<td><b>200</b></td>
+<td><b>80.08</b></td>
+<td><b>62.99</b></td>
+<td><b>21%</b></td>
+</tr>
+<tr>
+<td rowspan="3">
+<b>TCP wikipedia page</b></td>
+<td><b>20</b></td>
+<td><b>1.72</b></td>
+<td><b>1.53</b></td>
+<td><b>11%</b></td>
+</tr>
+<tr>
+<td><b>100</b></td>
+<td><b>4.01</b></td>
+<td><b>2.88</b></td>
+<td><b>28%</b></td>
+</tr>
+<tr>
+<td><b>200</b></td>
+<td><b>7.7</b></td>
+<td><b>5.43</b></td>
+<td><b>29%</b></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-weight:400;"><br>
+Our PLTs are significantly larger than the ones in the paper for amazon.com, nytimes.com, and wsj.com. Note that this is reasonable given that the paper was published in 2011, and the sites mentioned likely had much slimmer pages. However, our PLTs for the TCP Wikipedia page was roughly the same as those from the paper. Because the TCP Wikipedia page is probably less dynamic than the other three pages, we believe that this significantly larger PLTs for the three websites are due to more resources on those webpages. The larger amount of resources can be seen using Google Chrome’s Developer Tools (Network section).</span></p>
+<p><span style="font-weight:400;">The PLTs for TCP with TFO enabled are lower than the PLTs for vanilla TCP, which matches the pattern from the paper. Further, the pattern of small percentage improvement for 20 ms RTT flows and larger percentage improvement for 100 and 200 ms RTT flows is also matched.</span></p>
+<p><span style="font-weight:400;">These results are taken from results.txt in the repository.</span></p>
+<p><b>Challenges: </b></p>
+<p><span style="font-weight:400;">There were definitely challenges with the setup. One challenge with installing mget was not realizing that we had to create a .mgetrc file to use mget. Another challenge was trying to write a script for installing mininet that would work with our tfo.py file. There were numerous errors regarding cgroups for a while. </span></p>
+<p><b>Critique: </b></p>
+<p><span style="font-weight:400;">In all of our experiments, we found that TFO reduces latency through reducing RTTs for the connection handshake, but we do not suggest that TFO be applied universally for all TCP connections. There are two downsides to TFO mentioned in the paper that are still unresolved. First, SYN packets with data continue to be filtered out by some middleboxes. Second, duplicate SYN packets are accepted by TFO, which means TFO is an extension that will break applications that rely on the guarantee by TCP that even with duplicate or delayed SYN packets only one connection will be made. This tradeoff by TFO can lead to significant security issues if servers use TFO without being aware of this design choice.</span></p>
+<p><b>Extensions:</b></p>
+<p><img data-attachment-id="11330" data-permalink="https://reproducingnetworkresearch.wordpress.com/?attachment_id=11330#main" data-orig-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=420&amp;h=260" data-orig-size="1204,746" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="rtt_histogram" data-image-description="" data-medium-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=420&amp;h=260?w=300" data-large-file="https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=420&amp;h=260?w=470" class="  wp-image-11330 aligncenter" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/rtt_histogram.png" alt="rtt_histogram.png" width="420" height="260" srcset="https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=420&amp;h=260 420w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=840&amp;h=520 840w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=150&amp;h=93 150w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=300&amp;h=186 300w, https://reproducingnetworkresearch.files.wordpress.com/2017/06/rtt_histogram.png?w=768&amp;h=476 768w" sizes="(max-width: 420px) 100vw, 420px"></p>
+<p><span style="font-weight:400;">As an extension, we wrote a script to ping the top 200 Alexa ranked websites and record the RTTs averaged over 4 ping requests. The histogram above displays the results. Note that the sites with an RTT of 0-1 ms all came from Google domains, which we hypothesize relates to aggressive caching by Google. We ignore these in our analysis.</span></p>
+<p><span style="font-weight:400;">We measured this to verify whether the paper’s choice of 20 ms, 100 ms, and 200 ms as RTT delays in their simulations were reasonable in the real world. We found their choices to be representative of the actual RTTs to more than half of the top 200 sites and that the number of sites drops off significantly for RTTs greater than 200 ms. </span></p>
+<p><span style="font-weight:400;">However, perhaps due to technological advancements since 2011, now many sites have RTTs in the single digits, so we retried the experiment with an RTT of 10 ms. The results are shown below.</span></p>
+<table>
+<tbody>
+<tr>
+<td><b>Page</b></td>
+<td><b>RTT (ms)</b></td>
+<td><b>PLT: Non-TFO (s)</b></td>
+<td><b>PLT: TFO (s)</b></td>
+<td><b>Improvement</b></td>
+</tr>
+<tr>
+<td><b>amazon.com</b></td>
+<td><b>10</b></td>
+<td><b>16.4</b></td>
+<td><b>16.07</b></td>
+<td><b>2%</b></td>
+</tr>
+<tr>
+<td><b>nytimes.com</b></td>
+<td><b>10</b></td>
+<td><b>12.16</b></td>
+<td><b>11.14</b></td>
+<td><b>8%</b></td>
+</tr>
+<tr>
+<td><b>wsj.com</b></td>
+<td><b>10</b></td>
+<td><b>28.03</b></td>
+<td><b>27.54</b></td>
+<td><b>1%</b></td>
+</tr>
+<tr>
+<td><b>TCP wikipedia page</b></td>
+<td><b>10</b></td>
+<td><b>1.52</b></td>
+<td><b>1.44</b></td>
+<td><b>5%</b></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-weight:400;"><br>
+While there is still some improvement in overall latency, what is important to understand here is that as RTT delays fall, the benefits of TFO also fall. This can be explained by the fact that smaller RTTs mean server processing time account for more of the overall latency, and that is outside the influence of TFO. </span></p>
+<p><b>Platform:</b></p>
+<p><span style="font-weight:400;">We use Google Cloud’s VM instances because that was suggested by the TAs and is quite reliable. The entire setup is reproducible, though there will be a few small differences in PLTs due to differing loading times of mininet. One parameter of the setup that will affect reproducibility the most is not using Ubuntu 14.04. The scripts for installing the dependencies for mget will not work if Ubuntu 14.04 is not used. Mininet was used because we are more familiar with it from PA 1. mget was used because previous teams had reported trouble with using wget and TFO. Ubuntu 14.04 was used because we ran into early troubles with Ubuntu 16.04 and installing mininet/mget. In addition, Ubuntu 14.04 has Linux kernel version 4.4, which is higher than TFO’s requirement of Linux kernel version 3.7.</span></p>
+<p><b>Instructions to reproduce:</b></p>
+<p><span style="font-weight:400;">Go to Google Cloud Engine and click ‘CREATE INSTANCE’. The instance should have the following properties:</span></p>
+<p><span style="font-weight:400;">Machine Type</span></p>
+<ul>
+<li><span style="font-weight:400;">1 vCPU with 3.75 GB memory</span></li>
+</ul>
+<p><span style="font-weight:400;">Boot Disk</span></p>
+<ul>
+<li><span style="font-weight:400;">Ubuntu 14.04 LTS</span></li>
+</ul>
+<p><span style="font-weight:400;">Check the following under Firewall</span></p>
+<ul>
+<li><span style="font-weight:400;">Allow HTTP Traffic</span></li>
+<li><span style="font-weight:400;">Allow HTTPS Traffic</span></li>
+</ul>
+<p><span style="font-weight:400;">Click ‘Create’.</span></p>
+<p><span style="font-weight:400;">Next, you will want to SSH into the instance. Once you have done so, run the following commands:</span></p>
+<ul>
+<li><span style="font-weight:400;">sudo apt-get update</span></li>
+<li><span style="font-weight:400;">sudo apt-get -y install git</span></li>
+<li><span style="font-weight:400;">cd ~; git clone </span><a href="https://logicalmath333@bitbucket.org/cs240groupproject/project3.git"><span style="font-weight:400;">https://logicalmath333@bitbucket.org/cs240groupproject/project3.git</span></a></li>
+</ul>
+<p><span style="font-weight:400;">Then, set up your current directory and run&nbsp;with the following commands:</span></p>
+<ul>
+<li><span style="font-weight:400;">cd project3</span><span style="font-weight:400;">; sudo python run.py</span></li>
+</ul>
+<p><span style="font-weight:400;">Wait 15-30 minutes</span></p>
+<p>Check out the results in results.txt</p>
+<p>=== Extension ===</p>
+<p><span style="font-weight:400;">If you wish to run the extension as well, simply run the command:</span></p>
+<ul>
+<li><span style="font-weight:400;">sudo ./rtt.sh</span></li>
+</ul>
+<p><span style="font-weight:400;">Wait 10-20 minutes</span></p>
+<p><span style="font-weight:400;">Checkout the RTT results for each site in rtts.txt</span></p>
+<p><strong>[end]</strong></p>
+			</div><!-- .entry-content -->
+
+	</article><!-- #post-10589 -->
+
+				
+					<nav role="navigation" id="nav-below" class="site-navigation post-navigation clear-fix">
+		<h1 class="assistive-text">Post navigation</h1>
+
+	
+		<div class="nav-previous"><a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-why-flow-completion-time-is-the-right-metric-for-congestion-control-rate-control-protocol/" rel="prev"><span class="meta-nav">←</span> CS244 ’16: Why Flow Completion Time is the Right Metric for Congestion Control (Rate Control Protocol)</a></div>		
+	
+	</nav><!-- #nav-below -->
+	
+				
+	
+	<div id="comments" class="comments-area">
+
+	
+	
+	
+		<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://reproducingnetworkresearch.wordpress.com/?p=10589#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://reproducingnetworkresearch.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="dc3e30c9ee"><input type="hidden" name="_wp_http_referer" value="/?p=10589">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="wordpress">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none solid rgba(0, 0, 0, 0.7); word-spacing: 0px; text-indent: 0px; line-height: 24.5px; width: 448px;" class="autosizejs "></textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 44px; overflow: hidden; word-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar" style="display: none;">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li style="display:none;">
+				<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li class="selected">
+				<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource.html" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service" style="">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav" originals="25" scale="2">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/86f3e5a27df872997989449ee67c86af" alt="Gravatar" width="25" class="no-grav" originals="25" src-orig="https://2.gravatar.com/avatar/86f3e5a27df872997989449ee67c86af?s=25&amp;d=https%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D25%26amp%3Bd%3Didenticon%26amp%3Bforcedefault%3Dy%26amp%3Br%3DG&amp;r=G" scale="2">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="https://2.gravatar.com/avatar/86f3e5a27df872997989449ee67c86af?s=25&amp;d=https%3A%2F%2Fs2.wp.com%2Fwp-content%2Fmu-plugins%2Fhighlander-comments%2Fimages%2Fwplogo.png&amp;r=G">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="121109765">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="87871b807c01aee127c76270e85e2932918d360a">
+				<p class="comment-form-posting-as pa-wordpress"><strong>eviltcp:</strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;wordpress&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav" originals="25" scale="2">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;twitter&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav" originals="25" scale="2">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;facebook&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/ad516503a11cd5ca435acc9bb6523536" alt="Google+ photo" width="25" class="no-grav" originals="25" scale="2">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;googleplus&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+<p class="form-submit" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="10589" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2d1eebc271"></p>
+<input type="hidden" name="genseq" value="1496518661">
+<p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1496518662109"></form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+</div><!-- #comments .comments-area -->
+			
+			</div><!-- #content -->
+		</div><!-- #primary .site-content -->
+
+<div id="secondary" class="clear-fix" role="complementary">
+
+
+	<div class="widget-area" role="complementary">
+
+	
+	<aside id="search-2" class="widget widget_search">	<form method="get" id="searchform" action="https://reproducingnetworkresearch.wordpress.com/" role="search">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search …">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form></aside><aside id="text-3" class="widget widget_text">			<div class="textwidget"><strong>Can network systems research papers be replicated?  </strong>
+
+<p>
+</p><p>
+
+This blog details stories from <a href="http://www.stanford.edu/class/cs244">Stanford CS244</a> students and researchers anywhere who have been inspired to share their research, largely using the <a href="http://mininet.github.com/">Mininet-HiFi network emulator</a> on <a href="https://reproducingnetworkresearch.wordpress.com/aws.amazon.com/ec2/" title="Amazon EC2">EC2</a> instances.  
+
+</p><p>
+
+For more details, check out the <a>Projects</a> gallery,  the <a href="https://reproducingnetworkresearch.wordpress.com/about">About</a> page, or <a>Contribute</a>.
+
+</p><p>
+
+<strong>Tweet/post/send</strong> them to your colleagues, comment at the bottom of each post, or even replicate each blog post using the provided instructions!
+</p></div>
+		</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription"><h1 class="widgettitle"><label for="subscribe-field">You are following this blog</label></h1>
+<p>You are following this blog, along with 111 other amazing people (<a href="https://wordpress.com/following/edit/">manage</a>).</p>
+</aside><aside id="blog-stats-2" class="widget widget_blog-stats"><h1 class="widgettitle">Blog Stats</h1>		<ul>
+			<li>232,224 hits</li>
+		</ul>
+		</aside><aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h1 class="widgettitle"></h1><div style="overflow:hidden"><a href="https://reproducingnetworkresearch.wordpress.com/tag/bufferbloat/" class="tag-link-47132607 tag-link-position-1" title="1 topic" style="font-size: 8pt;">bufferbloat</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/buffering/" class="tag-link-2024293 tag-link-position-2" title="1 topic" style="font-size: 8pt;">buffering</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/buffer-sizing/" class="tag-link-154597929 tag-link-position-3" title="2 topics" style="font-size: 10.709677419355pt;">buffer sizing</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/bursty/" class="tag-link-1225331 tag-link-position-4" title="1 topic" style="font-size: 8pt;">bursty</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/chrome/" class="tag-link-367314 tag-link-position-5" title="1 topic" style="font-size: 8pt;">chrome</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/codel/" class="tag-link-9163594 tag-link-position-6" title="1 topic" style="font-size: 8pt;">codel</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/collapse/" class="tag-link-49442 tag-link-position-7" title="1 topic" style="font-size: 8pt;">collapse</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/congestion/" class="tag-link-390805 tag-link-position-8" title="1 topic" style="font-size: 8pt;">congestion</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/congestion-control/" class="tag-link-20394997 tag-link-position-9" title="1 topic" style="font-size: 8pt;">congestion control</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/congestion-window/" class="tag-link-76336622 tag-link-position-10" title="3 topics" style="font-size: 12.516129032258pt;">congestion window</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/consensus/" class="tag-link-95081 tag-link-position-11" title="1 topic" style="font-size: 8pt;">consensus</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/container-based-emulation/" class="tag-link-105316145 tag-link-position-12" title="1 topic" style="font-size: 8pt;">container-based emulation</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/cs244/" class="tag-link-154466244 tag-link-position-13" title="10 topics" style="font-size: 19.139784946237pt;">cs244</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/data-center/" class="tag-link-78171 tag-link-position-14" title="11 topics" style="font-size: 19.741935483871pt;">data center</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/datacenter/" class="tag-link-199020 tag-link-position-15" title="1 topic" style="font-size: 8pt;">Datacenter</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/dcell/" class="tag-link-38513544 tag-link-position-16" title="2 topics" style="font-size: 10.709677419355pt;">dcell</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/dctcp/" class="tag-link-92932850 tag-link-position-17" title="5 topics" style="font-size: 15.225806451613pt;">dctcp</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/debugging/" class="tag-link-70886 tag-link-position-18" title="1 topic" style="font-size: 8pt;">debugging</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/delay/" class="tag-link-9650 tag-link-position-19" title="1 topic" style="font-size: 8pt;">delay</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/dos/" class="tag-link-5481 tag-link-position-20" title="1 topic" style="font-size: 8pt;">dos</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/ecmp/" class="tag-link-1775339 tag-link-position-21" title="2 topics" style="font-size: 10.709677419355pt;">ecmp</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/ecn/" class="tag-link-1965324 tag-link-position-22" title="3 topics" style="font-size: 12.516129032258pt;">ecn</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/emre-orbay/" class="tag-link-499514993 tag-link-position-23" title="1 topic" style="font-size: 8pt;">emre orbay</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/fairness/" class="tag-link-74585 tag-link-position-24" title="3 topics" style="font-size: 12.516129032258pt;">fairness</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/fast-open/" class="tag-link-22573663 tag-link-position-25" title="1 topic" style="font-size: 8pt;">fast-open</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/fat-tree/" class="tag-link-10409245 tag-link-position-26" title="3 topics" style="font-size: 12.516129032258pt;">fat tree</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/fault-tolerance/" class="tag-link-1590287 tag-link-position-27" title="2 topics" style="font-size: 10.709677419355pt;">fault tolerance</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/fifo/" class="tag-link-1524707 tag-link-position-28" title="1 topic" style="font-size: 8pt;">FIFO</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/flow-completion-time/" class="tag-link-105319264 tag-link-position-29" title="3 topics" style="font-size: 12.516129032258pt;">flow-completion time</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/flow-scheduling/" class="tag-link-105318918 tag-link-position-30" title="1 topic" style="font-size: 8pt;">flow scheduling</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/gateways/" class="tag-link-75205 tag-link-position-31" title="1 topic" style="font-size: 8pt;">gateways</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/hedera/" class="tag-link-377851 tag-link-position-32" title="2 topics" style="font-size: 10.709677419355pt;">hedera</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/http/" class="tag-link-10518 tag-link-position-33" title="1 topic" style="font-size: 8pt;">http</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/hull/" class="tag-link-455782 tag-link-position-34" title="1 topic" style="font-size: 8pt;">HULL</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/incast/" class="tag-link-47902301 tag-link-position-35" title="1 topic" style="font-size: 8pt;">incast</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/init-cwnd/" class="tag-link-105315862 tag-link-position-36" title="2 topics" style="font-size: 10.709677419355pt;">init cwnd</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/jellyfish/" class="tag-link-47474 tag-link-position-37" title="2 topics" style="font-size: 10.709677419355pt;">jellyfish</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/low-latency/" class="tag-link-1462039 tag-link-position-38" title="1 topic" style="font-size: 8pt;">low latency</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/metrics/" class="tag-link-7092 tag-link-position-39" title="1 topic" style="font-size: 8pt;">metrics</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/mininet/" class="tag-link-86833954 tag-link-position-40" title="4 topics" style="font-size: 14.021505376344pt;">mininet</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/mobile-shell/" class="tag-link-5752195 tag-link-position-41" title="1 topic" style="font-size: 8pt;">mobile shell</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/mosh/" class="tag-link-709679 tag-link-position-42" title="1 topic" style="font-size: 8pt;">mosh</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/mptcp/" class="tag-link-94734359 tag-link-position-43" title="2 topics" style="font-size: 10.709677419355pt;">mptcp</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/msm/" class="tag-link-4232 tag-link-position-44" title="1 topic" style="font-size: 8pt;">MSM</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/mwm/" class="tag-link-1371112 tag-link-position-45" title="1 topic" style="font-size: 8pt;">MWM</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/networking/" class="tag-link-7426 tag-link-position-46" title="1 topic" style="font-size: 8pt;">networking</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/nox/" class="tag-link-412704 tag-link-position-47" title="1 topic" style="font-size: 8pt;">nox</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/openflow/" class="tag-link-10640881 tag-link-position-48" title="1 topic" style="font-size: 8pt;">openflow</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/outcast/" class="tag-link-444690 tag-link-position-49" title="1 topic" style="font-size: 8pt;">outcast</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/pacing/" class="tag-link-661159 tag-link-position-50" title="1 topic" style="font-size: 8pt;">pacing</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/performance/" class="tag-link-1930 tag-link-position-51" title="1 topic" style="font-size: 8pt;">performance</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/performance-isolation/" class="tag-link-105316146 tag-link-position-52" title="1 topic" style="font-size: 8pt;">performance isolation</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/pfabric/" class="tag-link-154450056 tag-link-position-53" title="1 topic" style="font-size: 8pt;">pFabric</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/phantom-queues/" class="tag-link-105318866 tag-link-position-54" title="1 topic" style="font-size: 8pt;">phantom queues</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/pim/" class="tag-link-36163 tag-link-position-55" title="1 topic" style="font-size: 8pt;">PIM</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/port-blackout/" class="tag-link-105319144 tag-link-position-56" title="1 topic" style="font-size: 8pt;">port blackout</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/priority-queues/" class="tag-link-558288 tag-link-position-57" title="1 topic" style="font-size: 8pt;">priority queues</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/queueing/" class="tag-link-1378198 tag-link-position-58" title="2 topics" style="font-size: 10.709677419355pt;">queueing</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/raft/" class="tag-link-153944 tag-link-position-59" title="1 topic" style="font-size: 8pt;">raft</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/red/" class="tag-link-7432 tag-link-position-60" title="3 topics" style="font-size: 12.516129032258pt;">red</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/rtt/" class="tag-link-716547 tag-link-position-61" title="1 topic" style="font-size: 8pt;">rtt</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/scalability/" class="tag-link-157223 tag-link-position-62" title="1 topic" style="font-size: 8pt;">scalability</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/sdn/" class="tag-link-271299 tag-link-position-63" title="1 topic" style="font-size: 8pt;">sdn</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/ssh/" class="tag-link-49320 tag-link-position-64" title="1 topic" style="font-size: 8pt;">ssh</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/stanford/" class="tag-link-75661 tag-link-position-65" title="1 topic" style="font-size: 8pt;">stanford</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/switching/" class="tag-link-5116 tag-link-position-66" title="1 topic" style="font-size: 8pt;">switching</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/tcp/" class="tag-link-129845 tag-link-position-67" title="16 topics" style="font-size: 22pt;">tcp</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/tfo/" class="tag-link-807990 tag-link-position-68" title="1 topic" style="font-size: 8pt;">tfo</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/timely/" class="tag-link-529827 tag-link-position-69" title="1 topic" style="font-size: 8pt;">timely</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/topology/" class="tag-link-41578 tag-link-position-70" title="4 topics" style="font-size: 14.021505376344pt;">topology</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/transport/" class="tag-link-11701 tag-link-position-71" title="1 topic" style="font-size: 8pt;">transport</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/vemulab/" class="tag-link-105316144 tag-link-position-72" title="1 topic" style="font-size: 8pt;">vemulab</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/video-streaming/" class="tag-link-113954 tag-link-position-73" title="3 topics" style="font-size: 12.516129032258pt;">video streaming</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/wifi/" class="tag-link-4305 tag-link-position-74" title="1 topic" style="font-size: 8pt;">wifi</a>
+<a href="https://reproducingnetworkresearch.wordpress.com/tag/wireless/" class="tag-link-355 tag-link-position-75" title="1 topic" style="font-size: 8pt;">wireless</a></div></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h1 class="widgettitle">All Posts</h1>		<ul>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-why-flow-completion-time-is-the-right-metric-for-congestion-control-rate-control-protocol/">CS244 ’16: Why Flow Completion Time is the Right Metric for Congestion Control (Rate Control Protocol)</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-modeling-and-performance-analysis-of-bittorrent-like-peer-to-peer-networks/">CS244 ’16: Modeling and Performance Analysis of BitTorrent-Like Peer-to-Peer Networks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-sprout-via-mahimahi/">CS244 ’16: Sprout via Mahimahi</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-an-accurate-sampling-scheme-for-detecting-syn-flooding-attacks-and-portscans/">CS244 ‘16: An Accurate Sampling Scheme for Detecting SYN Flooding Attacks and Portscans</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-congestion-control-with-a-misbehaving-receiver/">CS244 ’16: TCP Congestion Control with a Misbehaving Receiver</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-failed-experiments-with-fastmpc-integrating-rate-based-adaptive-streaming-into-vlc/">CS244 ’16: Failed Experiments with FastMPC: Integrating Rate-Based Adaptive Streaming into VLC</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-qjump-controlling-network-interference/">CS244 ’16: QJUMP – Controlling Network Interference</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-revisiting-tcp-pacing-on-the-modern-linux-kernel/">CS244 ’16: Revisiting TCP Pacing on the Modern Linux Kernel</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-timely/">CS244 ’16: TIMELY</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs24416-low-rate-tcp-targeted-denial-of-service-attacks/">CS244’16 Low-Rate TCP-Targeted Denial of Service Attacks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-elephants-vs-lightning-a-comparison-of-hadoop-and-spark-on-iterative-machine-learning/">CS244 ’16: Elephants vs. Lightning – A Comparison of Hadoop and Spark on Iterative Machine Learning</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs-244-16-abstractions-for-network-update/">CS244 ‘16: Abstractions for Network Update</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-towards-wifi-mobility-without-fast-handover/">CS244 ’16: Towards Wifi Mobility without Fast Handover</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-dctcp/">CS244 ‘16:  DCTCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs-244-16-misbehaving-tcp-receivers-can-cause-internet-wide-congestion-collapse/">CS244 ‘16: Misbehaving TCP Receivers Can Cause Internet-Wide Congestion Collapse</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-path-diversity-in-the-jellyfish-network/">CS244 ’16: Path Diversity in the Jellyfish Network</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-verus-vs-sprout/">CS244 ’16: Verus vs. Sprout</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-quic-loss-recovery/">CS244 ’16: QUIC Loss Recovery</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-project-final-report-sunkyu-lim-jia-han-chiam/">CS244 ’16: Low-rate TCP-targeted Denial of Service Attacks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-pcc-shallow-queues-and-fairness/">CS244 ’16: PCC Shallow Queues and Fairness</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-fast-open/">CS244 ’16: TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-self-clocked-rate-adaptation-for-conversational-video-in-lte/">CS244 ’16: Self-clocked Rate adaption for Conversational Video in LTE</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2016/05/28/__trashed/">7924</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-confused-timid-and-unstable-picking-a-video-streaming-rate-is-hard/">CS244 ’15: CONFUSED, TIMID, AND UNSTABLE: PICKING A VIDEO STREAMING RATE IS HARD.</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-is-flow-completion-time-a-better-measure-for-congestion-control/">CS244 ’15: Is Flow Completion Time a Better Measure for Congestion Control?</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-increasing-tcps-initial-congestion-window-2/">CS244 ’15: Increasing TCP’s Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs24415-proportional-rate-reduction-of-tcp/">CS244′ 15: Proportional Rate Reduction of TCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-raft-understandable-distributed-consensus/">CS244 ’15: Raft, Understandable Distributed Consensus</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-codel-controlling-delay-in-queues/">CS244 ’15: CoDel – Controlling Delay in Queues</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs-244-15-reproducing-the-3gwifi-application-level-latency-results-in-mptcp/">CS 244 ‘15: Reproducing the 3G/WiFi application level latency results in MPTCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs24415-denial-of-service-using-tcps-rto/">CS244’15: Denial Of Service using TCP’s RTO.</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-mosh-reproducing-network-research-results/">CS244 ’15: Mosh | Reproducing Network Research Results</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-tcp-fast-open/">CS244 ’15 TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs24415-tcp-fast-open/">CS244’15- TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-hedera-flow-scheduling-draft/">CS244 ‘15: Hedera Flow Scheduling</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/opt-ack-in-java/">CS244 ’15: Misbehaving TCP Receivers Can Cause Internet-Wide Congestion Collapse</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-the-intuition-behind-why-a-randomly-networked-data-center-works/">CS244 ’15: The Intuition Behind Why a Randomly Networked Data Center Works</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-recursively-cautious-congestion-control/">CS244 ’15: Recursively Cautious Congestion Control</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs244-15-tcp-congestion-control-with-a-misbehaving-receiver/">CS244 ’15: TCP Congestion Control with a Misbehaving Receiver</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs-244-15-qjump-delay-guarantees-in-datacenter-networks/">CS 244 ’15: QJump—delay guarantees in datacenter networks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/31/cs-244-15-asap-a-low-latency-transport-layer/">CS 244 ’15: ASAP, A low-latency transport layer</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/30/cs244-15-how-speedy-is-spdy-2/">CS244 ’15: How Speedy is SPDY?</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/30/cs244-15-pfabric-deconstructing-data-center-transport/">CS244 ’15: PFABRIC: DECONSTRUCTING DATA CENTER TRANSPORT</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/29/cs-244-15-an-argument-for-increasing-tcps-initial-congestion-window/">CS 244 ’15 : An Argument for Increasing TCP’s Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2015/05/29/cs244-15-evaluating-pcc-re-architecting-congestion-control-for-high-performance/">CS244 ’15: Evaluating PCC: Re-architecting Congestion Control for High Performance</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/05/cs244-14-tcp-congestion-control-with-a-misbehaving-receiver-2/">CS244 ’14: TCP Congestion Control with a Misbehaving Receiver</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-sprout/">CS244 ‘14: Sprout</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-tcp-congestion-control-with-a-misbehaving-receiver/">CS244 ’14: TCP Congestion Control with a Misbehaving Receiver</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-jellyfish/">CS244 ’14: Jellyfish</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-jellyfish-networking-data-centers-randomly/">CS244 ’14: Jellyfish – Networking Data Centers Randomly</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-tcp-fast-open-2/">CS244 ’14: TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs-244-14-mosh-an-interactive-remote-shell-for-mobile-clients/">CS 244 ‘14: Mosh: An Interactive Remote Shell for Mobile Clients</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs-244-14-bro-network-intrusion-detection-system-performance-analysis/">CS 244 ’14: Bro Network Intrusion Detection System Performance Analysis</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-examining-the-impact-of-receive-buffer-size-on-mptcp/">CS244 ’14: Examining the Impact of Receive Buffer Size on MPTCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-why-flow-completion-time-is-the-right-metric-for-congestion-control/">CS244 ’14: Why Flow-Completion Time is the Right metric for Congestion Control</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-confused-timid-and-unstable-picking-a-video-streaming-rate-is-hard/">CS244 ’14: Confused, Timid, and Unstable: Picking a Video Streaming Rate is Hard</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-mptcp-application-latency-over-wifi-and-3g/">CS244 ’14: MPTCP Application Latency over WiFi and 3G</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-tcp-fast-open/">CS244 ‘14: TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/dcell-why-not-to-use-mininet-packetin-handler-of-custom-pox-controller/">CS244 ’14: DCell: Why Not to Use Mininet + PacketIn Handler of Custom POX Controller</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs244-14-investigating-opt-ack-attacks/">CS244 ’14: Investigating Opt-Ack Attacks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2014/06/03/cs-244-14-an-argument-for-increasing-tcps-initial-congestion-window/">CS 244 ’14: An Argument for Increasing TCP’s Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/14/mosh-cs244-13/">CS244 ’13: Mosh</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/14/cs244-13-jellyfish-path-diversity-and-throughput-comparison/">CS244 ’13: Jellyfish Path Diversity and Throughput Comparison</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/14/cs244-13-jellyfish-networking-data-centers-randomly/">CS244 ’13: Jellyfish, Networking Data Centers Randomly</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/14/cs24413-proportional-rate-reduction-for-tcp/">CS244’13: Proportional Rate Reduction for TCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs-244-13-increasing-the-tcp-initial-congestion-window/">CS 244 ’13: Increasing the TCP Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/tcp-fastopen/">CS244 ’13: TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-rising-from-the-depths-observing-and-implementing-improvements-in-online-video-bitrate-selection/">CS244 ’13: Rising from the depths – Observing and implementing improvements in online video bitrate selection</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-2013-evaluation-of-mosh-mobile-shell-performance-results/">CS244 ’13: Evaluation of Mosh “mobile shell” performance results</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-high-speed-switch-scheduling/">CS244 ’13: High Speed Switch Scheduling</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-pfabric-deconstructing-data-center-transport/">CS244 ’13: pFabric: Deconstructing data center transport</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-scaling-consistent-updates/">CS244 ’13: Scaling Consistent Updates</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-pfabric-datacenter-packet-switching/">CS244 ’13: pFabric: Datacenter Packet Switching</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-tcp-pacing-and-buffer-sizing/">CS244 ’13: TCP Pacing and Buffer Sizing</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-increasing-tcps-initial-congestion-window/">CS244 ’13: Increasing TCP’s Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-video-rate-selection-for-streaming-services/">CS244 ’13: Video Rate Selection For Streaming Services</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs24413_dcell/">CS244 ’13: DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs-244-13-low-rate-tcp-targeted-dos-attack/">CS244 ’13: Low Rate TCP-Targeted DoS Attack</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-dctcp-queue-sizing/">CS244 ’13: DCTCP Queue Sizing</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-dctcp/">CS244 ’13 DCTCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/13/cs244-13-improving-datacenter-performance-and-robustness-with-multipath-tcp/">CS244 ’13: Improving Datacenter Performance and Robustness with Multipath TCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/12/cs244-13-hedera/">CS244 ‘13: Hedera</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/12/cs244-13-netflixs-downward-spiral-reproducing-research-on-the-selection-of-video-rates/">CS244 ‘13: Video Streaming’s Downward Spiral: Reproducing Research on the Selection of Video Rates</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/12/cs244-13-tcp-fast-open/">CS244 ’13: TCP Fast Open</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2013/03/12/1216/">CS244 ’13: Alfalfa: A Videoconferencing Protocol for Cellular Wireless Networks</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/07/11/atpg/">Mini-Stanford Backbone</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/09/hedera-2/">Hedera</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/09/dctcp-2/">DCTCP</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/09/performance-isolation-in-vemulab-and-mininet-vs-mininet-hifi/">Performance Isolation in vEmulab and Mininet vs. Mininet-HiFi</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/08/tcp-incast-collapse/">TCP Incast Collapse</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/08/hull-high-bandwidth-ultra-low-latency/">HULL: High Bandwidth, Ultra Low Latency</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/07/increasing-tcps-initial-congestion-window/">Increasing TCP’s Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/hedera/">Hedera</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/dcell-a-scalable-and-fault-tolerant-network-structure-for-data-centers/">DCell : A Scalable and Fault-Tolerant Network Structure for Data Centers</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/dctcp-and-queues/">DCTCP and Queues</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/fairness-of-jellyfish-vs-fat-tree/">Fairness of Jellyfish vs. Fat-Tree</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/lifes-not-fair-neither-is-tcp-under-the-following-conditions/">Life’s not fair, neither is TCP (…under the following conditions)</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/solving-bufferbloat-the-codel-way/">Solving Bufferbloat – The CoDel Way</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/mptcp-wireless-performance-draft/">MPTCP Wireless Performance</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/06/why-flow-completion-time-is-the-right-metric-for-congestion-control/">Why Flow-Completion Time is the Right Metric for Congestion Control</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/05/seeing-red/">Seeing RED</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/05/choosing-the-default-initial-congestion-window/">Choosing the Default Initial Congestion Window</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/04/jellyfish-vs-fat-tree/">Jellyfish vs. Fat Tree</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/04/dcell-fault-tolerant-routing/">DCell: A Scalable and Fault-Tolerant Network Structure for Data Centers</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/04/tcp-daytona/">TCP Daytona: Congestion Control with a Misbehaving Receiver</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/04/multipath-tcp-over-wifi-and-3g-links/">Multipath TCP over WiFi and 3G links</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/02/76/">Exploring Outcast</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/01/sizing-router-buffers/">Sizing Router Buffers</a>
+						</li>
+					<li>
+				<a href="https://reproducingnetworkresearch.wordpress.com/2012/06/01/template-for-final-project-blog-posts/">Template for Final Project Blog Posts</a>
+						</li>
+				</ul>
+		</aside>		<aside id="meta-2" class="widget widget_meta"><h1 class="widgettitle">Meta</h1>			<ul>
+			<li><a href="https://reproducingnetworkresearch.wordpress.com/wp-admin/">Site Admin</a></li>			<li><a href="https://reproducingnetworkresearch.wordpress.com/wp-login.php?action=logout&amp;_wpnonce=8319f72934">Log out</a></li>
+			<li><a href="https://reproducingnetworkresearch.wordpress.com/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://reproducingnetworkresearch.wordpress.com/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>			</ul>
+			</aside>
+	</div><!-- .widget-area -->
+
+</div><!-- #secondary --><div id="tertiary" class="widget-area" role="complementary">
+
+	
+	<aside id="text-2" class="widget widget_text">			<div class="textwidget"></div>
+		</aside>
+</div><!-- #secondary .widget-area -->
+	</div><!-- #main -->
+
+	
+	<footer id="colophon" class="site-footer clear-fix" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+			</footer><!-- .site-footer .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<!--  -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		jQuery(document).ready( function($) {
+			function doFollowingHover() {
+				$('#wp-admin-bar-follow > a').unbind( '.unfollow' );
+
+				$('#wp-admin-bar-follow > a').bind( 'mouseover.unfollow', function() {
+
+					$(this).html( "Unfollow" ).parent( 'li' ).addClass( 'unfollow' );
+				});
+				$('#wp-admin-bar-follow > a').bind( 'mouseout.unfollow', function() {
+					$(this).html( "Following" ).parent( 'li' ).removeClass( 'unfollow' );
+				});
+			}
+							doFollowingHover();
+			
+			$('#wp-admin-bar-follow > a').click( function( e ) {
+				$('#wp-admin-bar-follow > a').unbind( '.unfollow' );
+
+				e.preventDefault();
+
+				var link = $( this ), li = $( '#wp-admin-bar-follow' ), timeout = 0;
+
+				if ( li.hasClass( 'subscribed' ) ) {
+					li.removeClass( 'subscribed' ).removeClass( 'unfollow' );
+					link.html( "Follow" );
+
+					$('body').append( $( 'div.wpcom-bubble' ).removeClass( 'fadein' ) ).off( 'click.bubble' );
+
+					var action = 'ab_unsubscribe_from_blog';
+				} else {
+					li.addClass( 'subscribed' ).removeClass( 'unfollow' );
+					link.html( "Following" );
+
+						var left = 131 - link.width();
+						li.append( $( 'div.wpcom-bubble' ).css( { left: '-' + left + 'px' } ) );
+						$( 'div.bubble-txt', 'div.wpcom-bubble' ).html( "New posts from this blog will now appear in <a target=\"_blank\" href=\"http:\/\/wordpress.com\/\">your reader<\/a>. You can manage email alerts from your <a target=\"_blank\" href=\"http:\/\/wordpress.com\/following\/edit\/\">subscriptions page<\/a>." );
+
+						$( 'div.wpcom-bubble.action-bubble' ).addClass( 'fadein' );
+
+						setTimeout( function() {
+							$('body').on( 'click.bubble touchstart.bubble', function(e) {
+								if ( !$(e.target).hasClass('wpcom-bubble') && !$(e.target).parents( 'div.wpcom-bubble' ).length )
+									hideBubble();
+							});
+							setTimeout( hideBubble, 15000 );
+						}, 500 );
+
+					var action = 'ab_subscribe_to_blog';
+					$('#wp-admin-bar-follow > a').bind( 'mouseout.shift', function() {
+						doFollowingHover();
+						$(this).unbind( '.shift' );
+					});
+				}
+
+				var nonce = link.attr( 'href' ).split( '_wpnonce=' );
+				nonce = nonce[1];
+
+				$.post( "https:\/\/reproducingnetworkresearch.wordpress.com\/wp-admin\/admin-ajax.php", {
+					'action': action,
+					'_wpnonce': nonce,
+					'source': 'admin_bar',
+					'blog_id': 36682981				});
+			});
+		});
+	/* ]]> */
+	</script>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":"86f3e5a27df872997989449ee67c86af"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<div id="report-form-window" style="display:none;"></div><script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/reproducingnetworkresearch.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-login.php?action=logout&_wpnonce=8319f72934","homeURL":"https:\/\/reproducingnetworkresearch.wordpress.com\/","postID":"10589","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"1","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(5)"></script>
+<script>
+			// <![CDATA[
+			jQuery( document ).on( 'mentionsData.jetpack', function( e, mentions ) {
+				jQuery( 'textarea#comment' ).mentions( mentions.data );
+			});
+			// ]]>
+		</script>
+	<div id="carousel-reblog-box">
+		<form action="https://reproducingnetworkresearch.wordpress.com/?p=10589#" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+							<option value="36682981">Reproducing Network Research</option>
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="https://reproducingnetworkresearch.wordpress.com/?p=10589#" class="cancel">Cancel</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post">
+				<input type="hidden" id="carousel-reblog-blog-id" value="36682981">
+				<input type="hidden" id="carousel-reblog-blog-url" value="https://reproducingnetworkresearch.wordpress.com">
+				<input type="hidden" id="carousel-reblog-blog-title" value="Reproducing Network Research">
+				<input type="hidden" id="carousel-reblog-post-url" value="">
+				<input type="hidden" id="carousel-reblog-post-title" value="">
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="3f300ec9cb"><input type="hidden" name="_wp_http_referer" value="/?p=10589">		</form>
+
+		<div class="arrow"></div>
+	</div>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/form.js"></script>
+<link rel="stylesheet" id="all-css-0-3" href="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(6)" type="text/css" media="all">
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='https://s1.wp.com/wp-content/mu-plugins/carousel/jetpack-carousel-ie8fix.css?m=1412618825h&#038;ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https:\/\/s1.wp.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpNotesArgs = {"cacheBuster":"f329760","iframeUrl":"https:\/\/widgets.wp.com\/notificationsbeta\/","iframeAppend":"2","iframeScroll":"no","wide":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpcom_tos_report_form = {"ajaxurl":"\/wp-admin\/admin-ajax.php","isLoggedoutUser":"","post_ID":"10589","current_url":"https:\/\/reproducingnetworkresearch.wordpress.com","report_this_content":"Report this content"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"36682981","siteName":"Reproducing Network Research","siteURL":"http:\/\/reproducingnetworkresearch.wordpress.com","icon":"<img alt='' src='https:\/\/s1.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"1","themeSlug":"pub\/oxygen","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Freproducingnetworkresearch.wordpress.com%2F%3Fp%3D10589","themeURL":"https:\/\/wordpress.com\/theme\/oxygen\/","xhrURL":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"d5f67e8bc9","isSingular":"1","isFolded":"","isLoggedIn":"1","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"14685235db\" \/>","referer":"https:\/\/reproducingnetworkresearch.wordpress.com\/?p=10589","canFollow":"1","statusMessage":"","customizeLink":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Freproducingnetworkresearch.wordpress.com%2F%3Fp%3D10589","postID":"10589","shortlink":"http:\/\/wp.me\/p2tUUZ-2KN","canEditPost":"1","editLink":"https:\/\/wordpress.com\/post\/reproducingnetworkresearch.wordpress.com\/10589","statsLink":"https:\/\/wordpress.com\/stats\/post\/10589\/reproducingnetworkresearch.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Oxygen","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in the Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 112 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Freproducingnetworkresearch.wordpress.com%2F%3Fp%3D10589\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"1","lang":"en","ajaxurl":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"db70afa350","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/reproducingnetworkresearch.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Freproducingnetworkresearch.wordpress.com%2F%3Fp%3D10589","blog_id":"36682981","local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">Commenting as eviltcp<\/p>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=36682981&v=wpcom&tz=0&user=1&user_id=121109765&subd=reproducingnetworkresearch","is_public":"1","reblog_enabled":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(7)"></script><div id="actionbar" class="actnbr-pub-oxygen actnbr-has-edit actnbr-has-follow"><ul><li class="actnbr-btn actnbr-edit actnbr-hidden"><a href="https://wordpress.com/post/reproducingnetworkresearch.wordpress.com/10589"><svg class="gridicon gridicon__pencil" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 6l5 5-9.507 9.507c-.686-.686-.69-1.794-.012-2.485l-.002-.003c-.69.676-1.8.673-2.485-.013-.677-.677-.686-1.762-.036-2.455l-.008-.008c-.694.65-1.78.64-2.456-.036L13 6zm7.586-.414l-2.172-2.172c-.78-.78-2.047-.78-2.828 0L14 5l5 5 1.586-1.586c.78-.78.78-2.047 0-2.828zM3 18v3h3c0-1.657-1.343-3-3-3z"></path></g></svg><span>Edit</span></a></li><li class="actnbr-btn actnbr-stats actnbr-hidden"><a href="https://wordpress.com/stats/post/10589/reproducingnetworkresearch.wordpress.com"><svg class="gridicon gridicon__stats-alt" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M21,21H3v-2h18V21z M8,10H4v7h4V10z M14,3h-4v14h4V3z M20,6h-4v11h4V6z"></path></g></svg><span>Stats</span></a></li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://reproducingnetworkresearch.wordpress.com/"><img alt="" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/wpcom-gray-white.png" class="avatar avatar-50" height="50" width="50" scale="0"> Reproducing Network Research</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://reproducingnetworkresearch.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Freproducingnetworkresearch.wordpress.com%2F%3Fp%3D10589"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 				    <li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-following" href="https://reproducingnetworkresearch.wordpress.com/?p=10589"><svg class="gridicon gridicon__following" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"></path></g></svg><span>Following</span></a></li> 					 				     				    <li class="actnbr-theme actnbr-hidden"><a href="https://wordpress.com/theme/oxygen/">Get theme: Oxygen</a></li> 				    <li class="actnbr-shortlink actnbr-hidden"><a href="http://wp.me/p2tUUZ-2KN">Copy shortlink</a></li> 				    <li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 				    <li class="actnbr-reader actnbr-hidden"><a href="https://wordpress.com/read/blogs/36682981">View site in the Reader</a></li> 				    <li class="actnbr-follows actnbr-hidden"><a href="https://wordpress.com/following/edit">Manage subscriptions</a></li> 				     				    <li class="actnbr-fold actnbr-hidden"><a href="https://reproducingnetworkresearch.wordpress.com/?p=10589">Collapse this bar</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>		<div id="wpadminbar" class="ltr">
+							<a class="screen-reader-shortcut" href="https://reproducingnetworkresearch.wordpress.com/?p=10589#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+						<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+			
+		<li id="wp-admin-bar-blog" class="menupop my-sites"><a class="ab-item" aria-haspopup="true" href="https://wordpress.com/stats/reproducingnetworkresearch.wordpress.com">My Site</a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-blog-default" class="ab-submenu">
+			
+		<li id="wp-admin-bar-new-site"><a class="ab-item" href="https://wordpress.com/start?ref=admin-bar-logged-in">+ Add New WordPress</a>		</li>
+		<li id="wp-admin-bar-blog-info" class="current-site"><a class="ab-item" href="https://reproducingnetworkresearch.wordpress.com/"><div class="ab-site-icon"></div><span class="ab-site-title">Reproducing Network …</span><span class="ab-site-description">reproducingnetworkresearch.wordpress.com</span></a>		</li>
+		<li id="wp-admin-bar-blog-stats" class="mb-icon"><a class="ab-item" href="https://wordpress.com/stats/reproducingnetworkresearch.wordpress.com">Stats <img style="width: 95px; margin: 0; float: right;" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/admin-bar-hours-scale-2x.php" alt="Stats" title="Showing site views per hour for the last 48 hours. Click for full Site Stats." scale="0"></a>		</li>
+		<li id="wp-admin-bar-plan" class="inline-action">		<div class="ab-item ab-empty-item"><a href="https://wordpress.com/plans/reproducingnetworkresearch.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-plan">Plan</a><a href="https://wordpress.com/plans/reproducingnetworkresearch.wordpress.com" class="ab-secondary" id="wp-admin-bar-plan-badge">Free</a></div>		</li>		</ul>
+			<ul id="wp-admin-bar-publish" class="ab-submenu">
+			
+		<li id="wp-admin-bar-publish-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item">Publish</div>		</li>
+		<li id="wp-admin-bar-new-post" class="inline-action">		<div class="ab-item ab-empty-item"><a href="https://wordpress.com/posts/reproducingnetworkresearch.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-post">Blog Posts</a><a href="https://wordpress.com/post/reproducingnetworkresearch.wordpress.com" class="ab-secondary" id="wp-admin-bar-new-post">Add</a></div>		</li>
+		<li id="wp-admin-bar-new-attachment" class="inline-action">		<div class="ab-item ab-empty-item"><a href="https://wordpress.com/media/reproducingnetworkresearch.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-attachment">Media</a><a href="https://wordpress.com/media/reproducingnetworkresearch.wordpress.com" class="ab-secondary" id="wp-admin-bar-new-attachment">Add</a></div>		</li>		</ul>
+	</div>		</li>
+		<li id="wp-admin-bar-jumptotop-button-menu"><a class="ab-item" href="https://reproducingnetworkresearch.wordpress.com/?p=10589#"><div id="jumptotop" style="top: 0px;"><span class="noticon noticon-top"></span></div></a>		</li>
+		<li id="wp-admin-bar-newdash" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://wordpress.com/">Reader</a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-newdash-default" class="ab-submenu">
+			
+		<li id="wp-admin-bar-streams-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item">Streams</div>		</li>
+		<li id="wp-admin-bar-following" class="inline-action">		<div class="ab-item ab-empty-item"><a href="https://wordpress.com/" class="ab-item ab-primary mb-icon" id="wp-admin-bar-followed-sites">Followed Sites</a><a href="https://wordpress.com/following/edit" class="ab-secondary" id="wp-admin-bar-reader-followed-sites-manage">Manage</a></div>		</li>
+		<li id="wp-admin-bar-discover-discover" class="mb-icon-spacer"><a class="ab-item" href="https://wordpress.com/discover">Discover</a>		</li>
+		<li id="wp-admin-bar-discover-search" class="mb-icon-spacer"><a class="ab-item" href="https://wordpress.com/read/search">Search</a>		</li>
+		<li id="wp-admin-bar-discover-recommended-blogs" class="mb-icon-spacer"><a class="ab-item" href="https://wordpress.com/recommendations">Recommendations</a>		</li>
+		<li id="wp-admin-bar-my-activity-my-likes" class="mb-icon-spacer"><a class="ab-item" href="https://wordpress.com/activities/likes">My Likes</a>		</li>		</ul>
+	</div>		</li>		</ul>
+			<ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+			
+		<li id="wp-admin-bar-notes" class="menupop">		<div class="ab-item ab-empty-item"><span id="wpnt-notes-unread-count" class="wpnt-loading wpn-read"><span class="noticon noticon-notification"></span></span><span class="noticon noticon-bell"></span><span class="ab-text">Notifications</span></div><div id="wpnt-notes-panel2" style="display:none" lang="en" dir="ltr" class="wide"><iframe style="" id="wpnt-notes-iframe2" frameborder="0" allowtransparency="true" scrolling="no" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(9).html" class="wide"></iframe></div>		</li>
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar no-grav ab-hover"><a class="ab-item" aria-haspopup="true" href="https://wordpress.com/me/"><img alt="" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/86f3e5a27df872997989449ee67c86af(1)" class="avatar avatar-32" height="32" width="32" originals="32" src-orig="https://2.gravatar.com/avatar/86f3e5a27df872997989449ee67c86af?s=32&amp;d=mm&amp;r=G" scale="2"><span class="ab-text">Me</span></a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-user-actions" class="ab-submenu">
+			
+		<li id="wp-admin-bar-user-info" class="user-info user-info-item">		<div class="ab-item ab-empty-item" tabindex="-1"><img alt="" src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/86f3e5a27df872997989449ee67c86af(2)" class="avatar avatar-128" height="128" width="128" originals="128" src-orig="https://2.gravatar.com/avatar/86f3e5a27df872997989449ee67c86af?s=128&amp;d=mm&amp;r=G" scale="2"><span class="display-name">eviltcp</span><a class="username" href="http://gravatar.com/eviltcp">@eviltcp</a><form action="https://reproducingnetworkresearch.wordpress.com/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fwordpress.com%2F%3Fapppromo&amp;_wpnonce=8319f72934" method="post"><button class="ab-sign-out" type="submit">Sign Out</button></form></div>		</li>
+		<li id="wp-admin-bar-profile-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item">Profile</div>		</li>
+		<li id="wp-admin-bar-my-profile" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me">My Profile</a>		</li>
+		<li id="wp-admin-bar-account-settings" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/account">Account Settings</a>		</li>
+		<li id="wp-admin-bar-billing" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/purchases">Manage Purchases</a>		</li>
+		<li id="wp-admin-bar-security" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/security">Security</a>		</li>
+		<li id="wp-admin-bar-notifications" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/notifications">Notifications</a>		</li>
+		<li id="wp-admin-bar-special-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item">Special</div>		</li>
+		<li id="wp-admin-bar-get-apps" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/get-apps">Get Apps</a>		</li>
+		<li id="wp-admin-bar-next-steps" class="mb-icon"><a class="ab-item" href="https://wordpress.com/me/next">Next Steps</a>		</li>
+		<li id="wp-admin-bar-help" class="mb-icon"><a class="ab-item" href="https://wordpress.com/help">Help</a>		</li>		</ul>
+	</div>		</li>
+		<li id="wp-admin-bar-ab-new-post"><a class="ab-item" href="https://wordpress.com/post/reproducingnetworkresearch.wordpress.com"><span>Write</span></a>		</li>		</ul>
+				</div>
+							<a class="screen-reader-shortcut" href="https://reproducingnetworkresearch.wordpress.com/wp-login.php?action=logout&amp;_wpnonce=8319f72934">Log Out</a>
+					</div>
+
+	
+<script type="text/javascript">
+/* <![CDATA[ */
+var clickDebugLink;
+
+jQuery(document).ready( function($) {
+	var single = true, w = 1000,
+		supe = false;
+
+	$(document.body).load(function(){ $('#wpadminbar img.grav-hashed').removeClass('grav-hashed'); }); // hack to hide the gravatar hovercard
+
+	if ( single && supe )
+		w = 1385;
+	else if ( supe )
+		w = 1200;
+
+	// debug bar extra
+	clickDebugLink = function( parent_id, obj ) {
+
+		$('#'+parent_id).children('div').hide();
+
+		document.getElementById( obj.href.substr( obj.href.indexOf( '#' ) + 1 ) ).style.display = 'block';
+		$( obj.href.substr( obj.href.indexOf( '#' ) ) ).show()
+
+		$(obj).parent().addClass('current').siblings('li').removeClass('current');
+
+		return false;
+	};
+
+	$( '#wpadminbar #wp-admin-bar-shortlink' ).click( function() {
+		$( '#adminbar-shortlink-input' ).select();
+	});
+
+	// skip tap-to-hover on site switcher for mobile
+	if ( 'ontouchstart' in window ) {
+		$('#wp-admin-bar-switch-site').on( 'touchstart', function( event ) {
+			if ( $( window ).width() > 782 ) {
+				return;
+			}
+			event.stopPropagation();
+			$( event.target ).first( 'a' ).click();
+		});
+	}
+
+});
+/* ]]> */
+</script>
+	<div class="wpcom-bubble action-bubble">
+		<div class="bubble-txt"></div>
+	</div>
+	<script type="text/javascript">function hideBubble() { jQuery('body').append( jQuery( 'div.wpcom-bubble' ).removeClass( 'fadein' ) ).off( 'click.bubble touchstart.bubble' ); jQuery(document).off( 'scroll.bubble' ); };</script>
+		<script type="text/javascript">
+	jQuery( '#wp-admin-bar-jumptotop-button-menu a' ).click( function( e ) {
+		e.preventDefault();
+		jQuery( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+	} );
+	function hideShowTbJumpToTop() {
+		var total_width = 0;
+		// Calculate total width taken by items minus our button to see if it'll
+		// overlap with other toolbar menus.
+		jQuery( '#wp-admin-bar-root-default > li' ).each( function() {
+			var self = jQuery( this );
+			if ( 'wp-admin-bar-jumptotop-button-menu' != self.attr( 'id' ) )
+				total_width += self.width();
+		});
+		if ( jQuery( '#wp-admin-bar-jumptotop-button-menu' ).position()['left'] - total_width < 10 ) {
+			jQuery( '#jumptotop' ).animate( { 'top': '-50px' }, 'fast' );
+		} else if (  jQuery( window ).scrollTop() >= 350 && parseInt( jQuery( '#jumptotop' ).css( 'top' ) ) < 0 ) {
+			if ( jQuery( '#wp-admin-bar-jumptotop-button-menu' ).position()['left'] - total_width < 10 )
+			   return;
+			jQuery( '#jumptotop' ).animate( { 'top': 0 }, 'fast' );
+		} else if (  jQuery( window ).scrollTop() < 1 && parseInt( jQuery( '#jumptotop' ).css( 'top' ) ) >= 0 ) {
+			jQuery( '#jumptotop' ).animate( { 'top': '-50px' }, 'fast' );
+		}
+	}
+	// handle on page load if auto scrolling to a position
+	hideShowTbJumpToTop();
+	// bind to scrolll event
+	var jumpToTopTimer = null;
+	jQuery( window ).scroll( function() {
+		clearTimeout( jumpToTopTimer );
+		jumpToTopTimer = setTimeout( jumpToTopRefresh, 150 );
+	} );
+	var jumpToTopRefresh = function() {
+		hideShowTbJumpToTop();
+	};
+	</script>
+	<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<iframe src="./CS244 ‘17 TCP Fast Open _ Reproducing Network Research_files/saved_resource(10).html" style="display: none;"></iframe><div id="atwho-container"><div id="atwho-ground-comment"><div class="atwho-view" id="at-view-64"><ul class="atwho-view-ul"></ul></div></div></div></body></html>
