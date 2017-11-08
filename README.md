@@ -7,15 +7,36 @@ TCP Fast Open (TFO) is an experimental update to TCP that enables data to be
 exchanged safely during TCP's connection handshake. It does so to save one RTT, while
 avoiding severe security threats.
 
-### Installation instructions
+### To run this code, set up a Google Cloud Instance with the folowing specs:
 
-#### mget, mininet
+#### Machine Type
 
-###### Run the below command.
+* 1 vCPU with 3.75 GB memory
 
+#### Boot Disk
+
+* Ubuntu 14.04 LTS
+
+#### Check the following under Firewall
+
+* Allow HTTP Traffic
+* Allow HTTPS Traffic
+
+Click ‘Create’.
+Log in to the instance and then clone this repository: </br>
 ```
-python run.py
+git clone https://github.com/derikclive/TCP-Fast-Open-Experimentation/
 ```
+
+Run the following commands after cloning:
+```
+sudo apt-get update
+sudo apt-get -y install git
+cd TCP-Fast-Open-Experimentation
+sudo python run.py
+```
+
+After 15-30 minutes, the results are written into results.txt
 
 ### References
 [1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317.
