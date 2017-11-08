@@ -5,7 +5,7 @@
 
 # Units are in Mbps
 # https://github.com/mininet/mininet/wiki/Introduction-to-Mininet
-bwnet=4
+#bwnet=4
 touch results.txt
 rm results.txt
 
@@ -17,11 +17,12 @@ for site in flipkart amazon_in ; do
 
   # Using the cubic function for the size of the congestion window.
   # You can also use the westwood and reno tcp congestion algorithms.
-  
+
   echo cubic >> results.txt
   echo cubic > /proc/sys/net/ipv4/tcp_congestion_control
 
   # Using mget to retive data from the hosted website using mget with,
+
   # i) tfo enabled: code 519 (519 = 0x200 OR 0x1 OR 0x2 OR 0x4 )
       # where these flags stand for
     	#   0x1: (client) enables sending data in the opening SYN on the client.
@@ -47,16 +48,21 @@ for site in flipkart amazon_in ; do
       echo -n "    Delay (ms): " >> results.txt
       echo $delay >> results.txt
 
-      # manually configuring the tcp fast open by changing the flag in /proc/sys/net/ipv4/tcp_fastopen
-      # this can also be done by using sysctl
+      for bwnet in 1 2 5 10; do
+        echo -n "    Bandwidth (Mbps): " >> results.txt
+        echo $bwnet >> results.txt
+        # manually configuring the tcp fast open by changing the flag in /proc/sys/net/ipv4/tcp_fastopen
+        # this can also be done by using sysctl
 
-      echo $tfo > /proc/sys/net/ipv4/tcp_fastopen
 
-      if [ "$tfo" = "0" ]; then
-        python tfo.py -b $bwnet --delay $delay --site $site >> results.txt
-      else
-        python tfo.py -b $bwnet --delay $delay --site $site --tfo True >> results.txt
-      fi
+        echo $tfo > /proc/sys/net/ipv4/tcp_fastopen
+
+        if [ "$tfo" = "0" ]; then
+          python tfo.py -b $bwnet --delay $delay --site $site >> results.txt
+        else
+          python tfo.py -b $bwnet --delay $delay --site $site --tfo True >> results.txt
+        fi
+      done
     done
   done
 done
