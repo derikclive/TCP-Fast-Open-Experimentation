@@ -18,6 +18,9 @@ import sys
 import os
 import re
 
+
+# Parsing the input arguments: bandwitdh, delay, name of site, tfo enabled/disabled
+
 parser = ArgumentParser(description="Bufferbloat tests")
 
 parser.add_argument('--bw-net', '-b',
@@ -50,13 +53,14 @@ class TFOTopo(Topo):
         # Here I have created a switch.  If you change its name, its
         # interface names will change from s0-eth1 to newname-eth1.
         switch = self.addSwitch('s0')
-        # We create two hosts and add links with appropriate 
+        # We create two hosts and add links with appropriate
         # characteristics
         h1 = self.addHost('h1')
         h2 = self.addHost('h2')
         self.addLink(h1, h2, delay=(str(args.delay) + 'ms'), bw=args.bw_net)
         return
 
+# Function to locally host the website on the host h1 passed in the argument with tfo enabled/disabled.
 def start_webserver(net):
     h1 = net.get('h1')
 
@@ -67,6 +71,7 @@ def start_webserver(net):
     sleep(5)
     return proc
 
+#Here we load the webpage hosted by the host h1 using mget and time it to get the page load time for that website.
 def measure_transfer_time(net):
     h1 = net.get('h1')
     h2 = net.get('h2')
@@ -77,6 +82,7 @@ def measure_transfer_time(net):
     time = float(strtime[0])
     return time
 
+
 def bufferbloat():
     topo = TFOTopo()
     net = Mininet(topo=topo, host=CPULimitedHost, link=TCLink, controller=OVSController)
@@ -86,9 +92,9 @@ def bufferbloat():
     # dumpNodeConnections(net.hosts)
 
     webserver = start_webserver(net)
-    
+
     time_transfer = measure_transfer_time(net)
-    
+
     print "    Time for transfer: %s" % (float(time_transfer)) + "\n"
 
     #webserver.kill()
