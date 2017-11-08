@@ -46,7 +46,7 @@ with open(filename) as f:
 				vanilla_times.append(time)
 
 
-			if delay == "200" and tfo and band == "10":
+			if delay == "20" and tfo and band == "2":
 				print len(vanilla_times), len(tfo_times)
 				print "\nsite: " + site
 				print "tcp protocol: " + tcp_protocol
