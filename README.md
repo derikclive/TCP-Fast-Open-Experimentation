@@ -23,15 +23,20 @@ avoiding severe security threats.
 * Allow HTTPS Traffic
 
 Click ‘Create’.
-Log in to the instance and then clone this repository: </br>
+
+Run the following commands after logging in through SSH:
+```
+sudo apt-get update
+sudo apt-get -y install git
+```
+
+Clone the repository
 ```
 git clone https://github.com/derikclive/TCP-Fast-Open-Experimentation/
 ```
 
-Run the following commands after cloning:
+Run the python file to start:
 ```
-sudo apt-get update
-sudo apt-get -y install git
 cd TCP-Fast-Open-Experimentation
 sudo python run.py
 ```
