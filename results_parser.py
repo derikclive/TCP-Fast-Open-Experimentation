@@ -8,7 +8,7 @@ tfo_times = []
 site = None;
 tcp_protocol = None;
 tfo = None;
-filename = "results.txt" 
+filename = "results.txt"
 
 with open(filename) as f:
 	for line in f:
@@ -41,9 +41,11 @@ with open(filename) as f:
 				print "\nsite: " + site
 				print "tcp protocol: " + tcp_protocol
 				delays = [20, 100, 200]
+				bandwitdhs = [1, 2, 5, 10]
 				for i in range(len(delays)):
-					print "delay: " + str(delays[i])
-					print "% improvement: " + str(100 * (abs(tfo_times[i] - vanilla_times[i]) / (vanilla_times[i])))
+					for j in range(len(bandwidths))
+						print "delay: " + str(delays[i])
+						print "bandwitdh: " + str(bandwitdh[j])
+						print "% improvement: " + str(100 * (abs(tfo_times[i] - vanilla_times[i]) / (vanilla_times[i])))
 				vanilla_times = []
 				tfo_times = []
-

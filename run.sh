@@ -17,7 +17,7 @@ for site in flipkart amazon_in ; do
 
   # Using the cubic function for the size of the congestion window.
   # You can also use the westwood and reno tcp congestion algorithms.
-  
+
   echo cubic >> results.txt
   echo cubic > /proc/sys/net/ipv4/tcp_congestion_control
 
@@ -47,16 +47,18 @@ for site in flipkart amazon_in ; do
       echo -n "    Delay (ms): " >> results.txt
       echo $delay >> results.txt
 
-      # manually configuring the tcp fast open by canging the flag in /proc/sys/net/ipv4/tcp_fastopen
-      # this can also be done by using sysctl
+      for bwnet 1 2 5 10; do
+        # manually configuring the tcp fast open by canging the flag in /proc/sys/net/ipv4/tcp_fastopen
+        # this can also be done by using sysctl
 
-      echo $tfo > /proc/sys/net/ipv4/tcp_fastopen
+        echo $tfo > /proc/sys/net/ipv4/tcp_fastopen
 
-      if [ "$tfo" = "0" ]; then
-        python tfo.py -b $bwnet --delay $delay --site $site >> results.txt
-      else
-        python tfo.py -b $bwnet --delay $delay --site $site --tfo True >> results.txt
-      fi
+        if [ "$tfo" = "0" ]; then
+          python tfo.py -b $bwnet --delay $delay --site $site >> results.txt
+        else
+          python tfo.py -b $bwnet --delay $delay --site $site --tfo True >> results.txt
+        fi
+      done
     done
   done
 done
