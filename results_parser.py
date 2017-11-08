@@ -29,6 +29,13 @@ with open(filename) as f:
 			first_digit = m.start()
 			delay = line[first_digit:]
 			delay = delay.strip()
+
+		if "Bandwidth" in line:
+			m = re.search("\d", line)
+			first_digit = m.start()
+			band = line[first_digit:]
+			band = band.strip()
+
 		if "Time for transfer" in line:
 			m = re.search("\d", line)
 			first_digit = m.start()
@@ -37,15 +44,20 @@ with open(filename) as f:
 				tfo_times.append(time)
 			else:
 				vanilla_times.append(time)
-			if delay == "200" and tfo:
+
+
+			if delay == "200" and tfo and band == "10":
+				print len(vanilla_times), len(tfo_times)
 				print "\nsite: " + site
 				print "tcp protocol: " + tcp_protocol
-				delays = [20, 100, 200]
-				bandwitdhs = [1, 2, 5, 10]
+				delays = [20]
+				bandwidths = [1, 2]
+				m = len(delays)
+				n = len(bandwidths)
 				for i in range(len(delays)):
-					for j in range(len(bandwidths))
+					for j in range(len(bandwidths)):
 						print "delay: " + str(delays[i])
-						print "bandwitdh: " + str(bandwitdh[j])
-						print "% improvement: " + str(100 * (abs(tfo_times[i] - vanilla_times[i]) / (vanilla_times[i])))
+						print "bandwitdh: " + str(bandwidths[j])
+						print "% improvement: " + str(100 * (abs(tfo_times[i*n+j] - vanilla_times[i*n+j]) / (vanilla_times[i*n+j])))
 				vanilla_times = []
 				tfo_times = []
