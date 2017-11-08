@@ -1,14 +1,17 @@
-dir=`pwd`
-
-apt-get -y install autoconf autogen automake libtool gtk-doc-tools xsltproc\
+sudo apt-get -y install autoconf autogen automake libtool gtk-doc-tools xsltproc\
  gettext zlib1g-dev liblzma-dev libbz2-dev libgnutls-dev libidn2-0-dev flex \
- libssl-dev
-cd ~
-rm -rf mget
-git clone http://github.com/rockdaboot/mget
+libssl-dev
+
+cd ~; git clone http://github.com/rockdaboot/mget
+
 cd mget
+
 ./autogen.sh
+
 ./configure
+
 make
-make install
+
+sudo make install
+
 touch ~/.mgetrc

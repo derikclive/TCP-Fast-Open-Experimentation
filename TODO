@@ -1,0 +1,14 @@
+=== Naoki ===
+- make sure we aren't caching DONE
+- make the chart for reno vs westwood vs other tcp (for extension) PROBABLY WON'T DO
+- setup / reproducting steps DONE
+
+=== Jason ===
+- average across multiple samples (for loop in bash)
+- replace wget with ping + display average rtts
+- finish rtt experiment (extension)
+- revise intro for paper (re-read TFO paper)
+
+=== Both ===
+- write about challenges faced in experiment
+
