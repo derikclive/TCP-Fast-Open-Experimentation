@@ -9,7 +9,7 @@ bwnet=4
 touch results.txt
 rm results.txt
 
-for site in flipkart; do
+for site in flipkart amazon_in ; do
   echo -n "====== " >> results.txt
   echo -n $site >> results.txt
   echo " ======" >> results.txt
