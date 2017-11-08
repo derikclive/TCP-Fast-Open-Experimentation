@@ -43,6 +43,11 @@ sudo python run.py
 
 After 15-30 minutes, the results are written into results.txt
 
+### Challenges Faced
+
+* We faced a lot of issuses when we tried to install mininet on Ubuntu 16.04 (openvswitch-controller), so we had to switch to Ubuntu 14.04.
+* We also took a lot of time to understand the code of the CS244'17 TFO project as it wasn't well documented.
+
 ### References
 [1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317.
 
