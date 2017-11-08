@@ -22,7 +22,8 @@ for site in flipkart amazon_in ; do
   echo cubic > /proc/sys/net/ipv4/tcp_congestion_control
 
   # Using mget to retive data from the hosted website using mget with,
-  # i) tfo enabled: code 519 (0x200 OR 0x1 OR 0x2 OR 0x4)
+
+  # i) tfo enabled: code 519 (519 = 0x200 OR 0x1 OR 0x2 OR 0x4 )
       # where these flags stand for
     	#   0x1: (client) enables sending data in the opening SYN on the client.
     	#   0x2: (server) enables the server support, i.e., allowing data in
@@ -50,8 +51,9 @@ for site in flipkart amazon_in ; do
       for bwnet in 1 2 5 10; do
         echo -n "    Bandwidth (Mbps): " >> results.txt
         echo $bwnet >> results.txt
-        # manually configuring the tcp fast open by canging the flag in /proc/sys/net/ipv4/tcp_fastopen
+        # manually configuring the tcp fast open by changing the flag in /proc/sys/net/ipv4/tcp_fastopen
         # this can also be done by using sysctl
+
 
         echo $tfo > /proc/sys/net/ipv4/tcp_fastopen
 
