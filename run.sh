@@ -44,11 +44,11 @@ for site in ncms ; do
     else
       echo "  tfo enabled" >> results.txt
     fi
-    for delay in 20 100 200; do
+    for delay in 20; do
       echo -n "    Delay (ms): " >> results.txt
       echo $delay >> results.txt
 
-      for bwnet in 1 2 5 10; do
+      for bwnet in 1; do
         echo -n "    Bandwidth (Mbps): " >> results.txt
         echo $bwnet >> results.txt
         # manually configuring the tcp fast open by changing the flag in /proc/sys/net/ipv4/tcp_fastopen
