@@ -76,8 +76,8 @@ class CO300Handler(BaseHTTPServer.BaseHTTPRequestHandler):
         else:
             f.write("<strong>Failed:</strong>")
         f.write(info)
-        f.write("<br><a href=\"%s\">back</a>" % self.headers['referer'])
-        f.write("<a href=\"http://li2z.cn/?s=SimpleHTTPServerWithUpload\">")
+        # f.write("<br><a href=\"%s\">back</a>" % self.headers['referer'])
+        # f.write("<a href=\"http://li2z.cn/?s=SimpleHTTPServerWithUpload\">")
         f.write("here</a>.</small></body>\n</html>\n")
         length = f.tell()
         f.seek(0)
@@ -88,6 +88,8 @@ class CO300Handler(BaseHTTPServer.BaseHTTPRequestHandler):
         if f:
             self.copyfile(f, self.wfile)
             f.close()
+        self.wfile.write(json.dumps({'success':True}))
+        return (True, "Image uploaded successfully.")
 
     def deal_post_data(self):
         boundary = self.headers.plisttext.split("=")[1]
