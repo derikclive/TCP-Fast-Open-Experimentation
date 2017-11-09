@@ -88,8 +88,8 @@ class CO300Handler(BaseHTTPServer.BaseHTTPRequestHandler):
         if f:
             self.copyfile(f, self.wfile)
             f.close()
-        self.wfile.write(json.dumps({'success':True}))
-        return (True, "Image uploaded successfully.")
+        #self.wfile.write(json.dumps({'success':True}))
+        #return (True, "Image uploaded successfully.")
 
     def deal_post_data(self):
         boundary = self.headers.plisttext.split("=")[1]
