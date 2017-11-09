@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import os
-os.system('myvar="$PWD"')
+path = os.system('pwd')
 
 from mininet.node import OVSController
 from mininet.topo import Topo
@@ -79,7 +79,7 @@ def measure_transfer_time(net):
     h1 = net.get('h1')
     h2 = net.get('h2')
     print >> sys.stderr, "Working on retrieving from " + args.site
-    client = h2.popen('time -f%%e sudo curl --form "file=@/Desktop/er.png" %s:80/' % (h1.IP()), shell=True, stdout=PIPE, stderr=PIPE)
+    client = h2.popen('time -f%%e sudo curl --form "file=@%s/er.png" %s:80/' % (path, h1.IP()), shell=True, stdout=PIPE, stderr=PIPE)
     stdout, stderr = client.communicate()
     strtime = stderr.splitlines()[-1:]
     time = float(strtime[0])
