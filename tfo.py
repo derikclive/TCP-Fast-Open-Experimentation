@@ -65,10 +65,10 @@ def start_webserver(net):
     h1 = net.get('h1')
 
     if (args.tfo == True):
-      proc = h1.popen("python sites/webserver.py --tfo True", shell=True)
+      proc = h1.popen("python sites/webserver.py --tfo True", shell=True) # to run sub-process in mininet
     else:
       proc = h1.popen("python sites/webserver.py --tfo False", shell=True)
-    sleep(5)
+    sleep(5) #delay of 5 seconds
     return proc
 
 #Here we load the webpage hosted by the host h1 using mget and time it to get the page load time for that website.
