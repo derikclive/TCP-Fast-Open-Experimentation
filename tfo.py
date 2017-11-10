@@ -78,12 +78,14 @@ def start_webserver(net):
 def measure_transfer_time(net):
     h1 = net.get('h1')
     h2 = net.get('h2')
+    print h1.IP()
     print >> sys.stderr, "Working on retrieving from " + args.site
-    client = h2.popen('time -f%%e sudo curl --form "file=@%s/er.png" %s:80/' % (path, h1.IP()), shell=True, stdout=PIPE, stderr=PIPE)
-    stdout, stderr = client.communicate()
-    strtime = stderr.splitlines()[-1:]
-    time = float(strtime[0])
-    return time
+    client = h2.cmd('curl --form "file=@/home/derikclive/er.png" %s:80/' % (h1.IP()))
+#    stdout, stderr = client.communicate()
+#    strtime = stderr.splitlines()[-1:]
+#    time = float(strtime[0])
+#    return time
+    return 0
 
 
 def bufferbloat():

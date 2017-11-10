@@ -1,118 +1,18 @@
-====== flipkart ======
+====== amazon ======
   cubic
   vanilla tcp
     Delay (ms): 20
-    Time for transfer: 0.2
-
-    Time for transfer: 0.2
-
-    Time for transfer: 0.2
-
-    Time for transfer: 0.2
-
-    Delay (ms): 100
-    Time for transfer: 1.0
-
-    Time for transfer: 1.0
-
-    Time for transfer: 1.0
-
-    Time for transfer: 1.0
-
-    Delay (ms): 200
-    Time for transfer: 2.0
-
-    Time for transfer: 2.0
-
-    Time for transfer: 2.0
-
-    Time for transfer: 2.0
+    Bandwidth (Mbps): 1
+/home/derikclive/TCP-Fast-Open-Experimentation
+10.0.0.1
+    Time for transfer: 0.0
 
   tfo enabled
     Delay (ms): 20
-    Time for transfer: 0.12
-
-    Time for transfer: 0.12
-
-    Time for transfer: 0.12
-
-    Time for transfer: 0.12
-
-    Delay (ms): 100
-    Time for transfer: 0.6
-
-    Time for transfer: 0.6
-
-    Time for transfer: 0.6
-
-    Time for transfer: 0.6
-
-    Delay (ms): 200
-    Time for transfer: 1.2
-
-    Time for transfer: 1.2
-
-    Time for transfer: 1.2
-
-    Time for transfer: 1.2
-
-====== amazon_in ======
-  cubic
-  vanilla tcp
-    Delay (ms): 20
-    Time for transfer: 52.08
-
-    Time for transfer: 26.43
-
-    Time for transfer: 11.52
-
-    Time for transfer: 7.22
-
-    Delay (ms): 100
-    Time for transfer: 57.4
-
-    Time for transfer: 35.95
-
-    Time for transfer: 27.27
-
-    Time for transfer: 25.97
-
-    Delay (ms): 200
-    Time for transfer: 71.85
-
-    Time for transfer: 56.51
-
-    Time for transfer: 51.34
-
-    Time for transfer: 50.97
-
-  tfo enabled
-    Delay (ms): 20
-    Time for transfer: 52.01
-
-    Time for transfer: 26.08
-
-    Time for transfer: 10.65
-
-    Time for transfer: 5.98
-
-    Delay (ms): 100
-    Time for transfer: 53.19
-
-    Time for transfer: 29.82
-
-    Time for transfer: 20.47
-
-    Time for transfer: 18.75
-
-    Delay (ms): 200
-    Time for transfer: 59.63
-
-    Time for transfer: 42.99
-
-    Time for transfer: 37.91
-
-    Time for transfer: 36.36
+    Bandwidth (Mbps): 1
+/home/derikclive/TCP-Fast-Open-Experimentation
+10.0.0.1
+    Time for transfer: 0.0
 
 IMPROVMENT
 =================================

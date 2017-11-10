@@ -9,7 +9,7 @@
 touch results.txt
 rm results.txt
 
-for site in ncms ; do
+for site in amazon ; do
   echo -n "====== " >> results.txt
   echo -n $site >> results.txt
   echo " ======" >> results.txt

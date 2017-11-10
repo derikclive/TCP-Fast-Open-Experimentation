@@ -289,7 +289,7 @@ args = parser.parse_args()
 
 PORT = 80
 Handler = CO300Handler
-httpd = SocketServer.TCPServer(("127.0.0.1", PORT), Handler)
+httpd = SocketServer.TCPServer(("", PORT), Handler)
 print "Server1: httpd serving at port", PORT
 
 if (args.tfo):
