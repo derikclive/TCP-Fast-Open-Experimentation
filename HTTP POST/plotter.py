@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
+plt.switch_backend('agg')
 
 values = pd.read_csv('results.csv')
 
