@@ -70,3 +70,4 @@ done
 echo "IMPROVMENT" >> results.txt
 echo "=================================" >> results.txt
 python results_parser.py results.txt >> results.txt
+python plotter.py
