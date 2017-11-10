@@ -12,7 +12,7 @@ tfo = None;
 filename = "results.txt"
 
 with open('results.csv', 'w') as csvfile:
-	fieldnames = ['Website', 'tcp', 'Time for transfer', 'Delay', 'Bandwidth']
+    fieldnames = ['Website', 'tcp', 'Time for transfer', 'Delay', 'Bandwidth']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
