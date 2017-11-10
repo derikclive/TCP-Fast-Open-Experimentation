@@ -5,14 +5,14 @@
     Bandwidth (Mbps): 1
 /home/derikclive/TCP-Fast-Open-Experimentation
 10.0.0.1
-    Time for transfer: 0.0
+    Time for transfer: 5.89
 
   tfo enabled
     Delay (ms): 20
     Bandwidth (Mbps): 1
 /home/derikclive/TCP-Fast-Open-Experimentation
 10.0.0.1
-    Time for transfer: 0.0
+    Time for transfer: 5.9
 
 IMPROVMENT
 =================================
