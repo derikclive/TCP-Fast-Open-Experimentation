@@ -118,11 +118,11 @@ This idea seems simple, but having servers send data before establishing a full 
 As we expected TFO performed way better than Vanilla TCP,  find below the results for amazon and flipkart websites. The time taken to load is different for different websites because of the varying number of (TCP/TFO) connections required to retrieve full website.
 <br>
 <br>
-<img src = "images/flipkart-table.png" width=400 height=200> 
+<img src = "images/flipkart-table.png" width=800 height=270> 
 <br>
 <br>
 
-<img src = "images/amazon-table.png" width=400 height=150> 
+<img src = "images/amazon-table.png" width=800 height=250> 
 
 <br>
 <br>
@@ -133,7 +133,7 @@ As we expected TFO performed way better than Vanilla TCP,  find below the result
 <h4> POST </h4>
 The inventors of TFO made a choice of not making a special handler for POST requests in TFO. When a TFO POST request comes in the kernel automatically takes it as a normal TCP connection. The results of the same can we be viewed below i.e there is no improvement.
 <br><br>
-<img src = "images/plots2.png" width=400 height=300> 
+<img src = "images/plots2.png" width=800 height=300> 
 									</p> </section>
 						<!-- Five -->
 						<!--
