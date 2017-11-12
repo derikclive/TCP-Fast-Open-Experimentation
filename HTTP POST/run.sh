@@ -44,7 +44,7 @@ for site in amazon ; do
     else
       echo "  tfo enabled" >> results.txt
     fi
-    for delay in 20 100 200; do
+    for delay in 10 20 50 100; do
       echo -n "    Delay (ms): " >> results.txt
       echo $delay >> results.txt
 

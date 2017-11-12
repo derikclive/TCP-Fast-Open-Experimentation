@@ -52,11 +52,11 @@ with open(filename) as f:
                 vanilla_times.append(time)
             
             
-            if delay == "200" and tfo and band == "5":
+            if delay == "100" and tfo and band == "5":
                 print len(vanilla_times), len(tfo_times)
                 print "\nsite: " + site
                 print "tcp protocol: " + tcp_protocol
-                delays = [20, 100, 200]
+                delays = [10, 20, 50, 100]
                 bandwidths = [5]
                 m = len(delays)
                 n = len(bandwidths)
