@@ -5,9 +5,7 @@
 ### Overview
 TCP Fast Open (TFO) is an experimental update to TCP that enables data to be
 exchanged safely during TCP's connection handshake. It does so to save one RTT, while
-avoiding severe security threats.
-
-The summary of the TCP Fast Open RFC can he found [here](https://github.com/derikclive/TCP-Fast-Open-Experimentation/wiki/RFC-7413---TFO-Summary).
+avoiding severe security threats. The summary of the TCP Fast Open RFC can he found [here](https://github.com/derikclive/TCP-Fast-Open-Experimentation/wiki/RFC-7413---TFO-Summary).
 
 ### Why TCP Fast Open when we have persistent HTTP Connections?
 HTTP Persistent Connections reuses TCP connections for multiple transactions ad thus saved the overhead involved in the three way handshake. However accoring to the statistics from Chrome, over one third of the HTTP requests (cold requests) make use of new TCP connections. But TFO overcomes this issue by allowing data to be exchanged during the initial TCP handshake itself.
@@ -44,7 +42,7 @@ You can check the perfomance of TFO for the following two HTTP request methods:
 
 1. HTTP GET
 
-To see the results of the GET request using TFO do the following:
+  To see the results of the GET request using TFO do the following:
 
   * Run the python file to start:
  
@@ -57,7 +55,7 @@ sudo python run.py
 
 2. HTTP POST
 
-To see the results of the POST request using TFO do the following:
+  To see the results of the POST request using TFO do the following:
 
   * Upload the file you want to upload to the server into the TCP-Fast-Open-Experimentation folder.
   
