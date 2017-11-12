@@ -71,7 +71,7 @@ There are four main files for a high level understanding that perform the whole 
 
 4) 	Details of the "webserver.py" file
 
-	Creates the SimpleHTTPServer with functions for handling the GET requests using the CO303Handler and also sets the port number to serve on.
+	Creates the BaseHttpServer with functions handling the GET and POST requests using the CO303Handler and also sets the port number to serve on.
 
 ### Analysis of results
 
