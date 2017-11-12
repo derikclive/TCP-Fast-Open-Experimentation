@@ -1,5 +1,6 @@
 import os
 
+os.system('sudo sh pydependecies.sh') #installs python dependencies required for plotting
 
 os.system('sudo sh mininet_setup.sh') #installs mininet
 
