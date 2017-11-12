@@ -1,55 +1,70 @@
 ====== amazon ======
   cubic
   vanilla tcp
+    Delay (ms): 10
+    Bandwidth (Mbps): 5
+/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
+10.0.0.1
+    Time for transfer: 7.52
+
     Delay (ms): 20
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 2.09
+    Time for transfer: 8.6
+
+    Delay (ms): 50
+    Bandwidth (Mbps): 5
+/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
+10.0.0.1
+    Time for transfer: 7.9
 
     Delay (ms): 100
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 3.0
-
-    Delay (ms): 200
-    Bandwidth (Mbps): 5
-/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
-10.0.0.1
-    Time for transfer: 4.41
+    Time for transfer: 8.5
 
   tfo enabled
+    Delay (ms): 10
+    Bandwidth (Mbps): 5
+/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
+10.0.0.1
+    Time for transfer: 7.52
+
     Delay (ms): 20
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 2.09
+    Time for transfer: 7.6
+
+    Delay (ms): 50
+    Bandwidth (Mbps): 5
+/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
+10.0.0.1
+    Time for transfer: 7.9
 
     Delay (ms): 100
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 3.0
-
-    Delay (ms): 200
-    Bandwidth (Mbps): 5
-/home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
-10.0.0.1
-    Time for transfer: 4.41
+    Time for transfer: 8.5
 
 IMPROVMENT
 =================================
-3 3
+4 4
 
 site: amazon
 tcp protocol: cubic
+delay: 10
+bandwitdh: 5
+% improvement: 0.0
 delay: 20
+bandwitdh: 5
+% improvement: 11.6279069767
+delay: 50
 bandwitdh: 5
 % improvement: 0.0
 delay: 100
-bandwitdh: 5
-% improvement: 0.0
-delay: 200
 bandwitdh: 5
 % improvement: 0.0

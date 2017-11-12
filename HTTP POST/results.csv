@@ -1,7 +1,9 @@
 Website,tcp,Time for transfer,Delay,Bandwidth
-amazon,tcp fast_open,0.08,20,5
-amazon,vanilla,0.08,20,5
-amazon,tcp fast_open,0.4,100,5
-amazon,vanilla,0.4,100,5
-amazon,tcp fast_open,0.8,200,5
-amazon,vanilla,0.8,200,5
+amazon,tcp fast_open,7.52,10,5
+amazon,vanilla,7.52,10,5
+amazon,tcp fast_open,7.6,20,5
+amazon,vanilla,8.6,20,5
+amazon,tcp fast_open,7.9,50,5
+amazon,vanilla,7.9,50,5
+amazon,tcp fast_open,8.5,100,5
+amazon,vanilla,8.5,100,5

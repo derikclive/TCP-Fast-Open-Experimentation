@@ -59,9 +59,11 @@ for site in amazon ; do
 
         if [ "$tfo" = "0" ]; then
           python tfo.py -b $bwnet --delay $delay --site $site >> results.txt
-        else
+       	  sudo rm test_image.jpg
+	else
           python tfo.py -b $bwnet --delay $delay --site $site --tfo True >> results.txt
-        fi
+          sudo rm test_image.jpg
+	fi
       done
     done
   done
