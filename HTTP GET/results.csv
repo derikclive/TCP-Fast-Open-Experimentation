@@ -1,104 +1,104 @@
 Website,tcp,Time for transfer,Delay,Bandwidth
-flipkart,tcp fast_open,0.12,20,1
-flipkart,vanilla,0.2,20,1
-flipkart,tcp fast_open,0.12,20,2
-flipkart,vanilla,0.2,20,2
-flipkart,tcp fast_open,0.12,20,5
-flipkart,vanilla,0.2,20,5
-flipkart,tcp fast_open,0.12,20,10
-flipkart,vanilla,0.2,20,10
-flipkart,tcp fast_open,0.6,100,1
-flipkart,vanilla,1.0,100,1
-flipkart,tcp fast_open,0.6,100,2
-flipkart,vanilla,1.0,100,2
-flipkart,tcp fast_open,0.6,100,5
-flipkart,vanilla,1.0,100,5
-flipkart,tcp fast_open,0.6,100,10
-flipkart,vanilla,1.0,100,10
-flipkart,tcp fast_open,1.2,200,1
-flipkart,vanilla,2.0,200,1
-flipkart,tcp fast_open,1.2,200,2
-flipkart,vanilla,2.0,200,2
-flipkart,tcp fast_open,1.2,200,5
-flipkart,vanilla,2.0,200,5
-flipkart,tcp fast_open,1.2,200,10
-flipkart,vanilla,2.0,200,10
-"amazon_in,",tcp fast_open,0.12,20,1
-"amazon_in,",vanilla,0.2,20,1
-"amazon_in,",tcp fast_open,0.12,20,2
-"amazon_in,",vanilla,0.2,20,2
-"amazon_in,",tcp fast_open,0.12,20,5
-"amazon_in,",vanilla,0.2,20,5
-"amazon_in,",tcp fast_open,0.12,20,10
-"amazon_in,",vanilla,0.2,20,10
-"amazon_in,",tcp fast_open,0.6,100,1
-"amazon_in,",vanilla,1.0,100,1
-"amazon_in,",tcp fast_open,0.6,100,2
-"amazon_in,",vanilla,1.0,100,2
-"amazon_in,",tcp fast_open,0.6,100,5
-"amazon_in,",vanilla,1.0,100,5
-"amazon_in,",tcp fast_open,0.6,100,10
-"amazon_in,",vanilla,1.0,100,10
-"amazon_in,",tcp fast_open,1.2,200,1
-"amazon_in,",vanilla,2.01,200,1
-"amazon_in,",tcp fast_open,1.2,200,2
-"amazon_in,",vanilla,2.0,200,2
-"amazon_in,",tcp fast_open,1.2,200,5
-"amazon_in,",vanilla,2.0,200,5
-"amazon_in,",tcp fast_open,1.2,200,10
-"amazon_in,",vanilla,2.0,200,10
-"myntra,",tcp fast_open,0.12,20,1
-"myntra,",vanilla,0.2,20,1
-"myntra,",tcp fast_open,0.12,20,2
-"myntra,",vanilla,0.2,20,2
-"myntra,",tcp fast_open,0.12,20,5
-"myntra,",vanilla,0.2,20,5
-"myntra,",tcp fast_open,0.12,20,10
-"myntra,",vanilla,0.2,20,10
-"myntra,",tcp fast_open,0.6,100,1
-"myntra,",vanilla,1.0,100,1
-"myntra,",tcp fast_open,0.6,100,2
-"myntra,",vanilla,1.0,100,2
-"myntra,",tcp fast_open,0.6,100,5
-"myntra,",vanilla,1.0,100,5
-"myntra,",tcp fast_open,0.6,100,10
-"myntra,",vanilla,1.0,100,10
-"myntra,",tcp fast_open,1.2,200,1
-"myntra,",vanilla,2.0,200,1
-"myntra,",tcp fast_open,1.2,200,2
-"myntra,",vanilla,2.0,200,2
-"myntra,",tcp fast_open,1.2,200,5
-"myntra,",vanilla,2.0,200,5
-"myntra,",tcp fast_open,1.2,200,10
-"myntra,",vanilla,2.0,200,10
-"jabong,",tcp fast_open,0.12,20,1
-"jabong,",vanilla,0.2,20,1
-"jabong,",tcp fast_open,0.12,20,2
-"jabong,",vanilla,0.2,20,2
-"jabong,",tcp fast_open,0.12,20,5
-"jabong,",vanilla,0.2,20,5
-"jabong,",tcp fast_open,0.12,20,10
-"jabong,",vanilla,0.2,20,10
-"jabong,",tcp fast_open,0.6,100,1
-"jabong,",vanilla,1.0,100,1
-"jabong,",tcp fast_open,0.6,100,2
-"jabong,",vanilla,1.0,100,2
-"jabong,",tcp fast_open,0.6,100,5
-"jabong,",vanilla,1.0,100,5
-"jabong,",tcp fast_open,0.6,100,10
-"jabong,",vanilla,1.0,100,10
-"jabong,",tcp fast_open,1.2,200,1
-"jabong,",vanilla,2.0,200,1
-"jabong,",tcp fast_open,1.2,200,2
-"jabong,",vanilla,2.0,200,2
-"jabong,",tcp fast_open,1.2,200,5
-"jabong,",vanilla,2.0,200,5
-"jabong,",tcp fast_open,1.21,200,10
-"jabong,",vanilla,2.0,200,10
+flipkart,tcp fast_open,35.21,20,1
+flipkart,vanilla,35.35,20,1
+flipkart,tcp fast_open,17.68,20,2
+flipkart,vanilla,17.82,20,2
+flipkart,tcp fast_open,7.21,20,5
+flipkart,vanilla,7.41,20,5
+flipkart,tcp fast_open,3.84,20,10
+flipkart,vanilla,4.17,20,10
+flipkart,tcp fast_open,36.02,100,1
+flipkart,vanilla,37.04,100,1
+flipkart,tcp fast_open,19.16,100,2
+flipkart,vanilla,20.63,100,2
+flipkart,tcp fast_open,10.97,100,5
+flipkart,vanilla,13.04,100,5
+flipkart,tcp fast_open,9.42,100,10
+flipkart,vanilla,11.45,100,10
+flipkart,tcp fast_open,38.42,200,1
+flipkart,vanilla,41.25,200,1
+flipkart,tcp fast_open,24.31,200,2
+flipkart,vanilla,28.41,200,2
+flipkart,tcp fast_open,18.81,200,5
+flipkart,vanilla,22.89,200,5
+flipkart,tcp fast_open,17.87,200,10
+flipkart,vanilla,21.89,200,10
+amazon_in,tcp fast_open,52.01,20,1
+amazon_in,vanilla,52.28,20,1
+amazon_in,tcp fast_open,26.08,20,2
+amazon_in,vanilla,26.46,20,2
+amazon_in,tcp fast_open,10.65,20,5
+amazon_in,vanilla,11.53,20,5
+amazon_in,tcp fast_open,5.99,20,10
+amazon_in,vanilla,7.21,20,10
+amazon_in,tcp fast_open,53.19,100,1
+amazon_in,vanilla,57.4,100,1
+amazon_in,tcp fast_open,29.82,100,2
+amazon_in,vanilla,35.96,100,2
+amazon_in,tcp fast_open,20.47,100,5
+amazon_in,vanilla,27.28,100,5
+amazon_in,tcp fast_open,18.75,100,10
+amazon_in,vanilla,25.97,100,10
+amazon_in,tcp fast_open,59.63,200,1
+amazon_in,vanilla,71.86,200,1
+amazon_in,tcp fast_open,42.99,200,2
+amazon_in,vanilla,56.51,200,2
+amazon_in,tcp fast_open,37.91,200,5
+amazon_in,vanilla,51.34,200,5
+amazon_in,tcp fast_open,36.35,200,10
+amazon_in,vanilla,50.97,200,10
+myntra,tcp fast_open,21.92,20,1
+myntra,vanilla,22.07,20,1
+myntra,tcp fast_open,11.03,20,2
+myntra,vanilla,11.19,20,2
+myntra,tcp fast_open,4.55,20,5
+myntra,vanilla,4.74,20,5
+myntra,tcp fast_open,2.47,20,10
+myntra,vanilla,2.7,20,10
+myntra,tcp fast_open,22.75,100,1
+myntra,vanilla,23.69,100,1
+myntra,tcp fast_open,12.34,100,2
+myntra,vanilla,13.45,100,2
+myntra,tcp fast_open,7.92,100,5
+myntra,vanilla,9.15,100,5
+myntra,tcp fast_open,7.56,100,10
+myntra,vanilla,8.62,100,10
+myntra,tcp fast_open,24.69,200,1
+myntra,vanilla,26.9,200,1
+myntra,tcp fast_open,16.47,200,2
+myntra,vanilla,18.96,200,2
+myntra,tcp fast_open,14.74,200,5
+myntra,vanilla,17.21,200,5
+myntra,tcp fast_open,14.38,200,10
+myntra,vanilla,16.8,200,10
+jabong,tcp fast_open,28.46,20,1
+jabong,vanilla,28.73,20,1
+jabong,tcp fast_open,14.34,20,2
+jabong,vanilla,14.64,20,2
+jabong,tcp fast_open,5.89,20,5
+jabong,vanilla,6.41,20,5
+jabong,tcp fast_open,3.36,20,10
+jabong,vanilla,4.02,20,10
+jabong,tcp fast_open,29.42,100,1
+jabong,vanilla,32.1,100,1
+jabong,tcp fast_open,16.72,100,2
+jabong,vanilla,20.0,100,2
+jabong,tcp fast_open,11.21,100,5
+jabong,vanilla,15.02,100,5
+jabong,tcp fast_open,10.16,100,10
+jabong,vanilla,13.94,100,10
+jabong,tcp fast_open,33.42,200,1
+jabong,vanilla,39.94,200,1
+jabong,tcp fast_open,23.87,200,2
+jabong,vanilla,31.33,200,2
+jabong,tcp fast_open,20.29,200,5
+jabong,vanilla,27.86,200,5
+jabong,tcp fast_open,19.56,200,10
+jabong,vanilla,27.15,200,10
 wiki_tcp,tcp fast_open,5.59,20,1
 wiki_tcp,vanilla,5.73,20,1
 wiki_tcp,tcp fast_open,2.88,20,2
-wiki_tcp,vanilla,3.04,20,2
+wiki_tcp,vanilla,3.03,20,2
 wiki_tcp,tcp fast_open,1.27,20,5
 wiki_tcp,vanilla,1.47,20,5
 wiki_tcp,tcp fast_open,0.78,20,10
@@ -113,9 +113,57 @@ wiki_tcp,tcp fast_open,2.7,100,10
 wiki_tcp,vanilla,3.85,100,10
 wiki_tcp,tcp fast_open,7.7,200,1
 wiki_tcp,vanilla,9.75,200,1
-wiki_tcp,tcp fast_open,5.76,200,2
-wiki_tcp,vanilla,8.03,200,2
+wiki_tcp,tcp fast_open,5.75,200,2
+wiki_tcp,vanilla,8.02,200,2
 wiki_tcp,tcp fast_open,5.39,200,5
 wiki_tcp,vanilla,7.69,200,5
 wiki_tcp,tcp fast_open,5.3,200,10
 wiki_tcp,vanilla,7.65,200,10
+google,tcp fast_open,13.0,20,1
+google,vanilla,13.12,20,1
+google,tcp fast_open,6.58,20,2
+google,vanilla,6.7,20,2
+google,tcp fast_open,2.77,20,5
+google,vanilla,2.89,20,5
+google,tcp fast_open,1.58,20,10
+google,vanilla,1.7,20,10
+google,tcp fast_open,13.81,100,1
+google,vanilla,14.42,100,1
+google,tcp fast_open,7.88,100,2
+google,vanilla,8.48,100,2
+google,tcp fast_open,5.19,100,5
+google,vanilla,5.8,100,5
+google,tcp fast_open,4.89,100,10
+google,vanilla,5.49,100,10
+google,tcp fast_open,15.75,200,1
+google,vanilla,16.96,200,1
+google,tcp fast_open,10.95,200,2
+google,vanilla,12.15,200,2
+google,tcp fast_open,9.78,200,5
+google,vanilla,10.98,200,5
+google,tcp fast_open,9.49,200,10
+google,vanilla,10.69,200,10
+youtube,tcp fast_open,45.56,20,1
+youtube,vanilla,45.78,20,1
+youtube,tcp fast_open,22.87,20,2
+youtube,vanilla,23.11,20,2
+youtube,tcp fast_open,9.31,20,5
+youtube,vanilla,9.86,20,5
+youtube,tcp fast_open,5.03,20,10
+youtube,vanilla,5.78,20,10
+youtube,tcp fast_open,46.52,100,1
+youtube,vanilla,49.59,100,1
+youtube,tcp fast_open,25.04,100,2
+youtube,vanilla,28.79,100,2
+youtube,tcp fast_open,14.36,100,5
+youtube,vanilla,18.58,100,5
+youtube,tcp fast_open,11.59,100,10
+youtube,vanilla,15.64,100,10
+youtube,tcp fast_open,50.07,200,1
+youtube,vanilla,57.57,200,1
+youtube,tcp fast_open,32.52,200,2
+youtube,vanilla,40.06,200,2
+youtube,tcp fast_open,22.85,200,5
+youtube,vanilla,31.25,200,5
+youtube,tcp fast_open,23.93,200,10
+youtube,vanilla,32.31,200,10

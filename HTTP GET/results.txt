@@ -2,117 +2,855 @@
   cubic
   vanilla tcp
     Delay (ms): 20
-    Time for transfer: 0.2
+    Bandwidth (Mbps): 1
+    Time for transfer: 35.35
 
-    Time for transfer: 0.2
+    Bandwidth (Mbps): 2
+    Time for transfer: 17.82
 
-    Time for transfer: 0.2
+    Bandwidth (Mbps): 5
+    Time for transfer: 7.41
 
-    Time for transfer: 0.2
+    Bandwidth (Mbps): 10
+    Time for transfer: 4.17
 
     Delay (ms): 100
-    Time for transfer: 1.0
+    Bandwidth (Mbps): 1
+    Time for transfer: 37.04
 
-    Time for transfer: 1.0
+    Bandwidth (Mbps): 2
+    Time for transfer: 20.63
 
-    Time for transfer: 1.0
+    Bandwidth (Mbps): 5
+    Time for transfer: 13.04
 
-    Time for transfer: 1.0
+    Bandwidth (Mbps): 10
+    Time for transfer: 11.45
 
     Delay (ms): 200
-    Time for transfer: 2.0
+    Bandwidth (Mbps): 1
+    Time for transfer: 41.25
 
-    Time for transfer: 2.0
+    Bandwidth (Mbps): 2
+    Time for transfer: 28.41
 
-    Time for transfer: 2.0
+    Bandwidth (Mbps): 5
+    Time for transfer: 22.89
 
-    Time for transfer: 2.0
+    Bandwidth (Mbps): 10
+    Time for transfer: 21.89
 
   tfo enabled
     Delay (ms): 20
-    Time for transfer: 0.12
+    Bandwidth (Mbps): 1
+    Time for transfer: 35.21
 
-    Time for transfer: 0.12
+    Bandwidth (Mbps): 2
+    Time for transfer: 17.68
 
-    Time for transfer: 0.12
+    Bandwidth (Mbps): 5
+    Time for transfer: 7.21
 
-    Time for transfer: 0.12
+    Bandwidth (Mbps): 10
+    Time for transfer: 3.84
 
     Delay (ms): 100
-    Time for transfer: 0.6
+    Bandwidth (Mbps): 1
+    Time for transfer: 36.02
 
-    Time for transfer: 0.6
+    Bandwidth (Mbps): 2
+    Time for transfer: 19.16
 
-    Time for transfer: 0.6
+    Bandwidth (Mbps): 5
+    Time for transfer: 10.97
 
-    Time for transfer: 0.6
+    Bandwidth (Mbps): 10
+    Time for transfer: 9.42
 
     Delay (ms): 200
-    Time for transfer: 1.2
+    Bandwidth (Mbps): 1
+    Time for transfer: 38.42
 
-    Time for transfer: 1.2
+    Bandwidth (Mbps): 2
+    Time for transfer: 24.31
 
-    Time for transfer: 1.2
+    Bandwidth (Mbps): 5
+    Time for transfer: 18.81
 
-    Time for transfer: 1.2
+    Bandwidth (Mbps): 10
+    Time for transfer: 17.87
 
 ====== amazon_in ======
   cubic
   vanilla tcp
     Delay (ms): 20
-    Time for transfer: 52.08
+    Bandwidth (Mbps): 1
+    Time for transfer: 52.28
 
-    Time for transfer: 26.43
+    Bandwidth (Mbps): 2
+    Time for transfer: 26.46
 
-    Time for transfer: 11.52
+    Bandwidth (Mbps): 5
+    Time for transfer: 11.53
 
-    Time for transfer: 7.22
+    Bandwidth (Mbps): 10
+    Time for transfer: 7.21
 
     Delay (ms): 100
+    Bandwidth (Mbps): 1
     Time for transfer: 57.4
 
-    Time for transfer: 35.95
+    Bandwidth (Mbps): 2
+    Time for transfer: 35.96
 
-    Time for transfer: 27.27
+    Bandwidth (Mbps): 5
+    Time for transfer: 27.28
 
+    Bandwidth (Mbps): 10
     Time for transfer: 25.97
 
     Delay (ms): 200
-    Time for transfer: 71.85
+    Bandwidth (Mbps): 1
+    Time for transfer: 71.86
 
+    Bandwidth (Mbps): 2
     Time for transfer: 56.51
 
+    Bandwidth (Mbps): 5
     Time for transfer: 51.34
 
+    Bandwidth (Mbps): 10
     Time for transfer: 50.97
 
   tfo enabled
     Delay (ms): 20
+    Bandwidth (Mbps): 1
     Time for transfer: 52.01
 
+    Bandwidth (Mbps): 2
     Time for transfer: 26.08
 
+    Bandwidth (Mbps): 5
     Time for transfer: 10.65
 
-    Time for transfer: 5.98
+    Bandwidth (Mbps): 10
+    Time for transfer: 5.99
 
     Delay (ms): 100
+    Bandwidth (Mbps): 1
     Time for transfer: 53.19
 
+    Bandwidth (Mbps): 2
     Time for transfer: 29.82
 
+    Bandwidth (Mbps): 5
     Time for transfer: 20.47
 
+    Bandwidth (Mbps): 10
     Time for transfer: 18.75
 
     Delay (ms): 200
+    Bandwidth (Mbps): 1
     Time for transfer: 59.63
 
+    Bandwidth (Mbps): 2
     Time for transfer: 42.99
 
+    Bandwidth (Mbps): 5
     Time for transfer: 37.91
 
-    Time for transfer: 36.36
+    Bandwidth (Mbps): 10
+    Time for transfer: 36.35
+
+====== myntra ======
+  cubic
+  vanilla tcp
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 22.07
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 11.19
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 4.74
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 2.7
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 23.69
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 13.45
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 9.15
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 8.62
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 26.9
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 18.96
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 17.21
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 16.8
+
+  tfo enabled
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 21.92
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 11.03
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 4.55
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 2.47
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 22.75
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 12.34
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 7.92
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 7.56
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 24.69
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 16.47
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 14.74
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 14.38
+
+====== jabong ======
+  cubic
+  vanilla tcp
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 28.73
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 14.64
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 6.41
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 4.02
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 32.1
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 20.0
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 15.02
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 13.94
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 39.94
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 31.33
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 27.86
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 27.15
+
+  tfo enabled
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 28.46
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 14.34
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 5.89
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 3.36
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 29.42
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 16.72
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 11.21
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 10.16
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 33.42
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 23.87
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 20.29
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 19.56
+
+====== wiki_tcp ======
+  cubic
+  vanilla tcp
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 5.73
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 3.03
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 1.47
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 1.0
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 7.31
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 4.9
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 3.9
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 3.85
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 9.75
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 8.02
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 7.69
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 7.65
+
+  tfo enabled
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 5.59
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 2.88
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 1.27
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 0.78
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 6.34
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 3.85
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 2.79
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 2.7
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 7.7
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 5.75
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 5.39
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 5.3
+
+====== google ======
+  cubic
+  vanilla tcp
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 13.12
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 6.7
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 2.89
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 1.7
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 14.42
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 8.48
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 5.8
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 5.49
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 16.96
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 12.15
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 10.98
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 10.69
+
+  tfo enabled
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 13.0
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 6.58
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 2.77
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 1.58
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 13.81
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 7.88
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 5.19
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 4.89
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 15.75
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 10.95
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 9.78
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 9.49
+
+====== youtube ======
+  cubic
+  vanilla tcp
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 45.78
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 23.11
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 9.86
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 5.78
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 49.59
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 28.79
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 18.58
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 15.64
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 57.57
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 40.06
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 31.25
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 32.31
+
+  tfo enabled
+    Delay (ms): 20
+    Bandwidth (Mbps): 1
+    Time for transfer: 45.56
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 22.87
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 9.31
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 5.03
+
+    Delay (ms): 100
+    Bandwidth (Mbps): 1
+    Time for transfer: 46.52
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 25.04
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 14.36
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 11.59
+
+    Delay (ms): 200
+    Bandwidth (Mbps): 1
+    Time for transfer: 50.07
+
+    Bandwidth (Mbps): 2
+    Time for transfer: 32.52
+
+    Bandwidth (Mbps): 5
+    Time for transfer: 22.85
+
+    Bandwidth (Mbps): 10
+    Time for transfer: 23.93
 
 IMPROVMENT
 =================================
+12 12
+
+site: flipkart
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.39603960396
+delay: 20
+bandwitdh: 2
+% improvement: 0.785634118967
+delay: 20
+bandwitdh: 5
+% improvement: 2.69905533063
+delay: 20
+bandwitdh: 10
+% improvement: 7.91366906475
+delay: 100
+bandwitdh: 1
+% improvement: 2.75377969762
+delay: 100
+bandwitdh: 2
+% improvement: 7.12554532235
+delay: 100
+bandwitdh: 5
+% improvement: 15.8742331288
+delay: 100
+bandwitdh: 10
+% improvement: 17.7292576419
+delay: 200
+bandwitdh: 1
+% improvement: 6.86060606061
+delay: 200
+bandwitdh: 2
+% improvement: 14.4315381908
+delay: 200
+bandwitdh: 5
+% improvement: 17.8243774574
+delay: 200
+bandwitdh: 10
+% improvement: 18.3645500228
+12 12
+
+site: amazon_in
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.516449885233
+delay: 20
+bandwitdh: 2
+% improvement: 1.43613000756
+delay: 20
+bandwitdh: 5
+% improvement: 7.63226366002
+delay: 20
+bandwitdh: 10
+% improvement: 16.9209431345
+delay: 100
+bandwitdh: 1
+% improvement: 7.33449477352
+delay: 100
+bandwitdh: 2
+% improvement: 17.0745272525
+delay: 100
+bandwitdh: 5
+% improvement: 24.9633431085
+delay: 100
+bandwitdh: 10
+% improvement: 27.8013092029
+delay: 200
+bandwitdh: 1
+% improvement: 17.0192040078
+delay: 200
+bandwitdh: 2
+% improvement: 23.924969032
+delay: 200
+bandwitdh: 5
+% improvement: 26.1589403974
+delay: 200
+bandwitdh: 10
+% improvement: 28.6835393369
+12 12
+
+site: myntra
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.679655641142
+delay: 20
+bandwitdh: 2
+% improvement: 1.42984807864
+delay: 20
+bandwitdh: 5
+% improvement: 4.00843881857
+delay: 20
+bandwitdh: 10
+% improvement: 8.51851851852
+delay: 100
+bandwitdh: 1
+% improvement: 3.96791895314
+delay: 100
+bandwitdh: 2
+% improvement: 8.25278810409
+delay: 100
+bandwitdh: 5
+% improvement: 13.4426229508
+delay: 100
+bandwitdh: 10
+% improvement: 12.2969837587
+delay: 200
+bandwitdh: 1
+% improvement: 8.2156133829
+delay: 200
+bandwitdh: 2
+% improvement: 13.1329113924
+delay: 200
+bandwitdh: 5
+% improvement: 14.35212086
+delay: 200
+bandwitdh: 10
+% improvement: 14.4047619048
+12 12
+
+site: jabong
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.939784197703
+delay: 20
+bandwitdh: 2
+% improvement: 2.04918032787
+delay: 20
+bandwitdh: 5
+% improvement: 8.11232449298
+delay: 20
+bandwitdh: 10
+% improvement: 16.4179104478
+delay: 100
+bandwitdh: 1
+% improvement: 8.34890965732
+delay: 100
+bandwitdh: 2
+% improvement: 16.4
+delay: 100
+bandwitdh: 5
+% improvement: 25.3661784288
+delay: 100
+bandwitdh: 10
+% improvement: 27.1162123386
+delay: 200
+bandwitdh: 1
+% improvement: 16.3244867301
+delay: 200
+bandwitdh: 2
+% improvement: 23.8110437281
+delay: 200
+bandwitdh: 5
+% improvement: 27.1715721464
+delay: 200
+bandwitdh: 10
+% improvement: 27.955801105
+12 12
+
+site: wiki_tcp
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 2.44328097731
+delay: 20
+bandwitdh: 2
+% improvement: 4.9504950495
+delay: 20
+bandwitdh: 5
+% improvement: 13.6054421769
+delay: 20
+bandwitdh: 10
+% improvement: 22.0
+delay: 100
+bandwitdh: 1
+% improvement: 13.269493844
+delay: 100
+bandwitdh: 2
+% improvement: 21.4285714286
+delay: 100
+bandwitdh: 5
+% improvement: 28.4615384615
+delay: 100
+bandwitdh: 10
+% improvement: 29.8701298701
+delay: 200
+bandwitdh: 1
+% improvement: 21.0256410256
+delay: 200
+bandwitdh: 2
+% improvement: 28.3042394015
+delay: 200
+bandwitdh: 5
+% improvement: 29.9089726918
+delay: 200
+bandwitdh: 10
+% improvement: 30.7189542484
+12 12
+
+site: google
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.914634146341
+delay: 20
+bandwitdh: 2
+% improvement: 1.79104477612
+delay: 20
+bandwitdh: 5
+% improvement: 4.15224913495
+delay: 20
+bandwitdh: 10
+% improvement: 7.05882352941
+delay: 100
+bandwitdh: 1
+% improvement: 4.23023578363
+delay: 100
+bandwitdh: 2
+% improvement: 7.07547169811
+delay: 100
+bandwitdh: 5
+% improvement: 10.5172413793
+delay: 100
+bandwitdh: 10
+% improvement: 10.9289617486
+delay: 200
+bandwitdh: 1
+% improvement: 7.13443396226
+delay: 200
+bandwitdh: 2
+% improvement: 9.87654320988
+delay: 200
+bandwitdh: 5
+% improvement: 10.9289617486
+delay: 200
+bandwitdh: 10
+% improvement: 11.2254443405
+12 12
+
+site: youtube
+tcp protocol: cubic
+delay: 20
+bandwitdh: 1
+% improvement: 0.480559196156
+delay: 20
+bandwitdh: 2
+% improvement: 1.0385114669
+delay: 20
+bandwitdh: 5
+% improvement: 5.57809330629
+delay: 20
+bandwitdh: 10
+% improvement: 12.9757785467
+delay: 100
+bandwitdh: 1
+% improvement: 6.19076426699
+delay: 100
+bandwitdh: 2
+% improvement: 13.0253560264
+delay: 100
+bandwitdh: 5
+% improvement: 22.7125941873
+delay: 100
+bandwitdh: 10
+% improvement: 25.895140665
+delay: 200
+bandwitdh: 1
+% improvement: 13.0276185513
+delay: 200
+bandwitdh: 2
+% improvement: 18.821767349
+delay: 200
+bandwitdh: 5
+% improvement: 26.88
+delay: 200
+bandwitdh: 10
+% improvement: 25.9362426493
