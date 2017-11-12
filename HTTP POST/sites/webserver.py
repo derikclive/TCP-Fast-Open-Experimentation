@@ -298,10 +298,3 @@ if (args.tfo):
 httpd.serve_forever()
 
 
-#
-# def test(HandlerClass = CO300Handler,
-#          ServerClass = BaseHTTPServer.HTTPServer):
-#     BaseHTTPServer.test(HandlerClass, ServerClass)
-#
-# if __name__ == '__main__':
-#     test()

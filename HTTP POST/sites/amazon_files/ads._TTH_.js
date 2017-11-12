@@ -1,1 +1,0 @@
-window.DA_adBlockerIsDisabled = true;

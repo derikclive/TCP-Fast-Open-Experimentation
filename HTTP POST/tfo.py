@@ -80,7 +80,7 @@ def measure_transfer_time(net):
     h2 = net.get('h2')
     print h1.IP()
     print >> sys.stderr, "Working on retrieving from " + args.site
-    client = h2.popen('time -f%%e curl --form "file=@/home/derikclive/TCP-Fast-Open-Experimentation/test_image.png" %s:80/' % (h1.IP()), shell=True, stdout=PIPE, stderr=PIPE)
+    client = h2.popen('time -f%%e curl --form "file=@/home/derikclive/TCP-Fast-Open-Experimentation/test_image.jpg" %s:80/' % (h1.IP()), shell=True, stdout=PIPE, stderr=PIPE)
     stdout, stderr = client.communicate()
     strtime = stderr.splitlines()[-1:]
     time = float(strtime[0])
