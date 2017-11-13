@@ -5,19 +5,19 @@
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 7.52
+    Time for transfer: 7.6
 
     Delay (ms): 20
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 8.6
+    Time for transfer: 7.6
 
     Delay (ms): 50
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 7.9
+    Time for transfer: 7.89
 
     Delay (ms): 100
     Bandwidth (Mbps): 5
@@ -42,7 +42,7 @@
     Bandwidth (Mbps): 5
 /home/derikclive/TCP-Fast-Open-Experimentation/HTTP POST
 10.0.0.1
-    Time for transfer: 7.9
+    Time for transfer: 7.89
 
     Delay (ms): 100
     Bandwidth (Mbps): 5
@@ -58,10 +58,10 @@ site: amazon
 tcp protocol: cubic
 delay: 10
 bandwitdh: 5
-% improvement: 0.0
+% improvement: 1.05263157895
 delay: 20
 bandwitdh: 5
-% improvement: 11.6279069767
+% improvement: 0.0
 delay: 50
 bandwitdh: 5
 % improvement: 0.0
