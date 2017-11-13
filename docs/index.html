@@ -28,9 +28,9 @@
 						<li><a href="#one" class="active">About</a></li>
 						<li><a href="#two">Introduction</a></li>
 						<li><a href="#three">Steps Involved</a></li>
-						<li><a href="#four">Resources</a></li>
-						<li><a href="#five">Platform</a></li>
-						<li><a href="#six">Results</a></li>
+						<li><a href="#four">Platform</a></li>
+						<li><a href="#five">Results</a></li>
+						<li><a href="#six">Resources</a></li>
 					</ul>
 				</nav>
 				<footer>
@@ -88,8 +88,51 @@ This idea seems simple, but having servers send data before establishing a full 
 							</section>
 
 							
+
 							<!-- Three -->
 							<section id="four">
+								<div class="container">
+									<h3>Platform</h3>
+									<p>We use Google Cloud’s VM instances. The entire setup is reproducible, though there will be a few small differences in PLTs due to differing loading times of mininet. One parameter of the setup that will affect reproducibility the most is not using Ubuntu 14.04. The scripts for installing the dependencies for mget will not work if Ubuntu 14.04 is not used. Ubuntu 14.04 was used because we ran into early troubles with Ubuntu 16.04 and installing mininet/mget in specific ovs-controller installation . In addition, Ubuntu 14.04 has Linux kernel version 4.4, which is higher than TFO’s requirement of Linux kernel version 3.7.</p> </section>
+
+							<!-- Three -->
+							<section id="five">
+								<div class="container">
+									<h3>Results and Inferences</h3>
+									<p>
+<h4> 1) GET </h4>
+As we expected TFO performed significantly better than Vanilla TCP, find below the results for amazon and flipkart websites. The time taken to load is different for different websites because of the varying sizes of the webpage.
+<br>
+<br>
+The performance improvement scales well with increase in bandwidth. This implies that users with higher bandwidth will benefit more from TFO. We observed a peak performance improvement of 30% in wikipedia TCP page at a bandwidth of 10 Mbps.
+
+<br>
+<br>
+<img src = "images/flipkart-table.png" width=800 height=270> 
+<br>
+<br>
+
+<img src = "images/amazon-table.png" width=800 height=250> 
+
+<br>
+<br>
+<img src = "images/eg">
+
+<br>
+<a href="https://github.com/derikclive/TCP-Fast-Open-Experimentation/blob/master/HTTP%20GET/plots.png">For a detailed Image of results click here.</a> 
+<br>
+<br>
+
+<h4> 2) POST </h4>
+The inventors of TFO made a design choice of not making a special handler for POST requests in TFO because if a hacker gets access to valid cookies of an authorised client then he can modify contents of the server which is dangerous. When a TFO POST request comes in, the kernel automatically takes it as a normal TCP connection. The results of the same can we be viewed below i.e there is no improvement.
+<br><br>
+<img src = "images/plots2.png" width=800 height=300> 
+									</p> </section>
+
+					
+									
+							<!-- Three -->
+							<section id="six">
 								<div class="container">
 									<h3>Resources</h3>
 									<p>
@@ -101,39 +144,6 @@ This idea seems simple, but having servers send data before establishing a full 
 
 [4] <a href = "https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/">https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/. </a>
 									
-									</p> </section>
-
-							<!-- Three -->
-							<section id="five">
-								<div class="container">
-									<h3>Platform</h3>
-									<p>We use Google Cloud’s VM instances. The entire setup is reproducible, though there will be a few small differences in PLTs due to differing loading times of mininet. One parameter of the setup that will affect reproducibility the most is not using Ubuntu 14.04. The scripts for installing the dependencies for mget will not work if Ubuntu 14.04 is not used. Ubuntu 14.04 was used because we ran into early troubles with Ubuntu 16.04 and installing mininet/mget in specific ovs-controller installation . In addition, Ubuntu 14.04 has Linux kernel version 4.4, which is higher than TFO’s requirement of Linux kernel version 3.7.</p> </section>
-
-							<!-- Three -->
-							<section id="six">
-								<div class="container">
-									<h3>Results</h3>
-									<p>
-<h4> GET </h4>
-As we expected TFO performed way better than Vanilla TCP,  find below the results for amazon and flipkart websites. The time taken to load is different for different websites because of the varying number of (TCP/TFO) connections required to retrieve full website.
-<br>
-<br>
-<img src = "images/flipkart-table.png" width=800 height=270> 
-<br>
-<br>
-
-<img src = "images/amazon-table.png" width=800 height=250> 
-
-<br>
-<br>
-<img src = "images/plots1.png" width=800 height=400> 
-<br>
-<br>
-
-<h4> POST </h4>
-The inventors of TFO made a choice of not making a special handler for POST requests in TFO. When a TFO POST request comes in the kernel automatically takes it as a normal TCP connection. The results of the same can we be viewed below i.e there is no improvement.
-<br><br>
-<img src = "images/plots2.png" width=800 height=300> 
 									</p> </section>
 						<!-- Five -->
 						<!--

@@ -89,6 +89,7 @@ sudo python run.py
 * From our experiments we found that TCP Fast Open was especially useful for website visitors who are a great distance away from the origin server therefore increasing round trip times.
 * We also observerd that the page load time (HHTP GET requests) of TFO over Vanilla TCP improved as the size of the webpage increased and as the bandwidth increases.
 * But there no improvement of using TFO when a HTTP POST request (Uploading a file) was given to the the server.
+* We also observed that our PLTs are significantly larger than the ones in the paper for amazon.com. We believe that this is reasonable given that the paper was published in 2011, and the sites mentioned likely had much slimmer pages. 
 
 ### References
 [1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317.
