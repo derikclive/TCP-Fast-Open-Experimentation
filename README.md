@@ -2,6 +2,10 @@
 ## Course Code: CO300
 ## Assignment
 
+### Webpage
+
+https://derikclive.github.io/TCP-Fast-Open-Experimentation/
+
 ### Overview
 TCP Fast Open (TFO) is an experimental update to TCP that enables data to be
 exchanged safely during TCP's connection handshake. It does so to save one RTT, while
@@ -95,6 +99,3 @@ sudo python run.py
 
 [4] https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/.
 
-### Webpage
-
-https://derikclive.github.io/TCP-Fast-Open-Experimentation/
