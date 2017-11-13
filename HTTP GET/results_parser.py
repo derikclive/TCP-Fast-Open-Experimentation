@@ -12,7 +12,7 @@ tfo = None;
 filename = "results.txt"
 
 with open('results.csv', 'w') as csvfile:
-    fieldnames = ['Website', 'tcp', 'Time for transfer', 'Delay', 'Bandwidth']
+    fieldnames = ['Website', 'tcp', 'Time for transfer', 'Delay', 'Bandwidth', 'Improvement']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -67,8 +67,8 @@ with open(filename) as f:
 						print "% improvement: " + str(100 * (abs(tfo_times[i*n+j] - vanilla_times[i*n+j]) / (vanilla_times[i*n+j])))
 						with open('results.csv' ,'a') as csvfile:
 							writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-							writer.writerow({'Website' : site, 'tcp': 'tcp fast_open' , 'Time for transfer':tfo_times[i*n+j], 'Delay' : delays[i], 'Bandwidth': bandwidths[j]})
-							writer.writerow({'Website' : site, 'tcp': 'vanilla' , 'Time for transfer': vanilla_times[i*n+j], 'Delay' : delays[i],'Bandwidth': bandwidths[j]})
+							writer.writerow({'Website' : site, 'tcp': 'tcp fast_open' , 'Time for transfer':tfo_times[i*n+j], 'Delay' : delays[i], 'Bandwidth': bandwidths[j], 'Improvement': str(100 * (abs(tfo_times[i*n+j] - vanilla_times[i*n+j]) / (vanilla_times[i*n+j])))})
+							writer.writerow({'Website' : site, 'tcp': 'vanilla' , 'Time for transfer': vanilla_times[i*n+j], 'Delay' : delays[i],'Bandwidth': bandwidths[j], 'Improvement': "-"})
 				vanilla_times = []
 				tfo_times = []
 
