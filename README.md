@@ -103,11 +103,15 @@ Then follow the following steps to enable Fast TCP Open
 
 Edit `/etc/sysctl.conf` and add the following line to its end of file
    `net.ipv4.tcp_fastopen = 3`
+   
 Save the file.
+
 Execute `sysctl -p` to make it taken into effect.
+
 Make it permanent even after rebooting system by adding the following line into `/etc/rc.local` 
 
    `echo 3 > /proc/sys/net/ipv4/tcp_fastopen`
+   
 To view TCP connections and to view the TFO cookies generated, use
 
 `ip tcp_metrics`
