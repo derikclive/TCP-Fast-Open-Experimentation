@@ -80,16 +80,38 @@ sudo python run.py
 ### Challenges Faced
 
 * We faced a lot of issuses when we tried to install mininet on Ubuntu 16.04 (openvswitch-controller), so we had to switch to Ubuntu 14.04 using the Google Cloud Server.
-* We also took a lot of time to understand the code of the CS244'17 TFO project as it wasn't well documented.
+* We also took a lot of time to understand the code of the CS244'17 TFO project as it lacked documentation in few places.
 * We intially faced of lot of issues while using the POST operation on the SimpleHTTPServer module. We then realised that the SimpleHTTPServer module did not support the POST requests (it only supported the GET requests). So we used the BaseHTTPServer module and wrote separate functions for handling the POST and GET requests and finally we got the module working.
 * We also had some difficulties using the curl command (for POST requests) on mininet. After lot of debugging and changing the IP address of the hosted website we got the curl command to work properly on mininet.
 
 ### Inferences
 
 * From our experiments we found that TCP Fast Open was especially useful for website visitors who are a great distance away from the origin server therefore increasing round trip times.
-* We also observerd that the page load time (HHTP GET requests) of TFO over Vanilla TCP improved as the size of the webpage increased and as the bandwidth increases.
-* But there no improvement of using TFO when a HTTP POST request (Uploading a file) was given to the the server.
+* We also observed that the page load time (HTTP GET requests) of TFO over Vanilla TCP improved as the size of the webpage increased and as the bandwidth increases.
+* But there was no improvement on using TFO when a HTTP POST request (Uploading a file) was given to the the server.
 * We also observed that our PLTs are significantly larger than the ones in the paper for amazon.com. We believe that this is reasonable given that the paper was published in 2011, and the sites mentioned likely had much slimmer pages. 
+
+### Enabling TFO in linux kernel
+
+You need to have linux kernel at least 3.7.
+
+You can check via `uname -r`, it will give the result similar to following.
+
+``4.4.0-98-generic``
+
+Then follow the following steps to enable Fast TCP Open
+
+Edit `/etc/sysctl.conf` and add the following line to its end of file
+   `net.ipv4.tcp_fastopen = 3`
+Save the file.
+Execute `sysctl -p` to make it taken into effect.
+Make it permanent even after rebooting system by adding the following line into `/etc/rc.local` 
+
+   `echo 3 > /proc/sys/net/ipv4/tcp_fastopen`
+To view TCP connections and to view the TFO cookies generated, use
+
+`ip tcp_metrics`
+
 
 ### References
 [1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317.
