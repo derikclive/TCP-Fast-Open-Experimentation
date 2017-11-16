@@ -54,7 +54,7 @@
 										<h2>TCP Fast Open Experimentation</h2>
 										<p>Using Mininet network simulator<br />
 									</header>
-									<p>This project shows the efficiveness of TCP Fast Open over Vanilla TCP by experimenting with parameters like bandwidth and delay on various websites like Amazon, Flipkart and Myntra in the Mininet Network simulator.</p>
+									<p>This project shows the efficiveness of TCP Fast Open over Vanilla TCP by experimenting with parameters like bandwidth and delay on various websites like Amazon, Flipkart and Myntra in the Mininet Network simulator. This project was inspired by the work done by the students of the CS244 course at Stanford [1].</p>
 								</div>
 							</section>
 
@@ -70,14 +70,14 @@ This idea seems simple, but having servers send data before establishing a full 
 
 <div style="text-align:center">
 
-<img src="images/TFO.jpg">		
+<img src="images/TFO.jpg">
 
-<h6>Credits : https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/</h6>	
+<h6>Credits : https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/</h6>
 								</div>
 							</section>
 
-						
-									
+
+
 							<section id="three">
 								<div class="container">
 									<h3>Steps involved in the project</h3>
@@ -92,7 +92,7 @@ This idea seems simple, but having servers send data before establishing a full 
 								</div>
 							</section>
 
-							
+
 
 							<!-- Three -->
 							<section id="four">
@@ -113,18 +113,18 @@ The performance improvement scales well with increase in bandwidth. This implies
 
 <br>
 <br>
-<img src = "images/flipkart-table.png" width=800 height=270> 
+<img src = "images/flipkart-table.png" width=800 height=270>
 <br>
 <br>
 
-<img src = "images/amazon-table.png" width=800 height=250> 
+<img src = "images/amazon-table.png" width=800 height=250>
 
 <br>
 <br>
 <img src = "images/eg">
 
 <br>
-<a href="https://github.com/derikclive/TCP-Fast-Open-Experimentation/blob/master/HTTP%20GET/plots.png">For a detailed results click here.</a> 
+<a href="https://github.com/derikclive/TCP-Fast-Open-Experimentation/blob/master/HTTP%20GET/plots.png">For a detailed results click here.</a>
 <br>
 <br>
 
@@ -139,7 +139,7 @@ While TFO is motivated by Web applications, the browser should not
 
 There is no special handler for POST requests in TFO. When a TFO POST request comes in, the kernel automatically takes it as a normal TCP connection. The results of the same can we be viewed below i.e there is no improvement.
 <br><br>
-<img src = "images/plots2.png" width=800 height=300> 
+<img src = "images/plots2.png" width=800 height=300>
 
 
 <br><br>
@@ -166,7 +166,7 @@ There is no special handler for POST requests in TFO. When a TFO POST request co
 
 									</p> </section>
 
-					
+
 							<!-- Three -->
 							<section id="seven">
 								<div class="container">
@@ -176,28 +176,30 @@ After enabling TFO (Find out how <a href="https://github.com/derikclive/TCP-Fast
 
 <div style="text-align:center">ip tcp_metrics</div> <br><br>
 
-<img src = "images/google.png" width="99%"> 
+<img src = "images/google.png" width="99%">
 <br><br>
 Observe the fo_cookie field, it confirms that our communication with the IP address (216.58.220.45) in the beginning of the line used TFO.
 <br><br>
 
-From our experimentation we confirm that Google and AWS websites support TFO requests. 
-									</p> </section>									
-							
+From our experimentation we confirm that Google and AWS websites support TFO requests.
+									</p> </section>
+
 
 
 							<section id="eight">
 								<div class="container">
 									<h3>Resources</h3>
 									<p>
-[1] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317. <br><br>
 
-[2] <a href="https://tools.ietf.org/html/rfc7413">https://tools.ietf.org/html/rfc7413.</a> <br><br>
+[1] <a href = "https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/">https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/. </a> <br><br>
 
-[3] <a href = "https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-fast-open/" >https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-fast-open/. </a> <br><br>
+[2] Sivasankar Radhakrishnan, Yuchung Cheng, Jerry Chu, Arvind Jain, and Barath Raghavan. 2011. TCP fast open. In Proceedings of the Seventh COnference on emerging Networking EXperiments and Technologies (CoNEXT '11). ACM, New York, NY, USA, , Article 21 , 12 pages. DOI=http://dx.doi.org/10.1145/2079296.2079317. <br><br>
 
-[4] <a href = "https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/">https://reproducingnetworkresearch.wordpress.com/2017/06/05/cs244-17-tcp-fast-open/. </a>
-									
+[3] <a href="https://tools.ietf.org/html/rfc7413">https://tools.ietf.org/html/rfc7413.</a> <br><br>
+
+[4] <a href = "https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-fast-open/" >https://reproducingnetworkresearch.wordpress.com/2016/05/30/cs244-16-tcp-fast-open/. </a> <br><br>
+
+
 									</p> </section>
 						<!-- Five -->
 						<!--
