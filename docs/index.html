@@ -151,12 +151,11 @@ There is no special handler for POST requests in TFO. When a TFO POST request co
 <div class="container">
 <h3> Challenges faced </h3>
 
-    1) We faced a lot of issuses when we tried to install mininet on Ubuntu 16.04 (openvswitch-controller), so we had to switch to Ubuntu 14.04 using the Google Cloud Server. <br><br>
-    2) We also took a lot of time to understand the code of the CS244'17 TFO project as it lacked documentation in few places. <br><br>
+    1) openvswitch-controller isn't supported on Ubuntu 16.04 and we couldn't deploy mininet on our machines. Our project had to be completely moved onto Google Cloud servers.  <br><br>
+    2) The documentation for the CS244'17 TFO project code was very minimal. <br><br>
 
-    3) We intially faced of lot of issues while using the POST operation on the SimpleHTTPServer module. We then realised that the SimpleHTTPServer module did not support the POST requests (it only supported the GET requests). So we used the BaseHTTPServer module and wrote separate functions for handling the POST and GET requests and finally we got the module working. <br><br>
-    4) We also had some difficulties using the curl command (for POST requests) on mininet. After lot of debugging and changing the IP address of the hosted website we got the curl command to work properly on mininet.
-
+    3) The project initially used SimpleHTTPServer which does not support POST requests.It only supports GET requests. We used BaseHTTPServer (which is the base class for SimpleHTTPServer) instead and wrote POST and GET handling requests from scratch. <br><br>
+    4) There was some difficulty in using the curl command (for POST requests) on mininet. On changing the IP address of the hosted website we got the curl command to work properly on mininet.
 
 									</p> </section>
 
