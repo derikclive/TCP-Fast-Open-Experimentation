@@ -55,7 +55,7 @@ cd TCP-Fast-Open-Experimentation/HTTP\ GET
 sudo python run.py
 ```
 
-  * After 15-30 minutes, the results are written into results.txt and the file plots.png will display the compaarison of TFO and Vanilla TCP using graphs.
+  * After 15-30 minutes, the results are written into results.txt and the file plots.png will display the comparison of TFO and Vanilla TCP using graphs.
 
 2. HTTP POST
 
@@ -81,8 +81,8 @@ sudo python run.py
 
 * We faced a lot of issuses when we tried to install mininet on Ubuntu 16.04 (openvswitch-controller), so we had to switch to Ubuntu 14.04 using the Google Cloud Server.
 * We also took a lot of time to understand the code of the CS244'17 TFO project as it lacked documentation in few places.
-* We intially faced of lot of issues while using the POST operation on the SimpleHTTPServer module. We then realised that the SimpleHTTPServer module did not support the POST requests (it only supported the GET requests). So we used the BaseHTTPServer module and wrote separate functions for handling the POST and GET requests and finally we got the module working.
-* We also had some difficulties using the curl command (for POST requests) on mininet. After lot of debugging and changing the IP address of the hosted website we got the curl command to work properly on mininet.
+* The project initially used SimpleHTTPServer which does not support POST requests.It only supports GET requests. We used BaseHTTPServer (which is the base class for SimpleHTTPServer) instead and wrote POST and GET handling requests from scratch.
+* There was some difficulty in using the curl command (for POST requests) on mininet. On changing the IP address of the hosted website we got the curl command to work properly on mininet.
 
 ### Inferences
 
