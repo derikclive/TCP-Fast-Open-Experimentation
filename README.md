@@ -79,8 +79,8 @@ sudo python run.py
 
 ### Challenges Faced
 
-* We faced a lot of issuses when we tried to install mininet on Ubuntu 16.04 (openvswitch-controller), so we had to switch to Ubuntu 14.04 using the Google Cloud Server.
-* We also took a lot of time to understand the code of the CS244'17 TFO project as it lacked documentation in few places.
+* openvswitch-controller isn't supported on Ubuntu 16.04 and we couldn't deploy mininet on our machines. Our project had to be completely moved to the cloud. 
+* The documentation for the CS244'17 TFO project was very minimal.
 * The project initially used SimpleHTTPServer which does not support POST requests.It only supports GET requests. We used BaseHTTPServer (which is the base class for SimpleHTTPServer) instead and wrote POST and GET handling requests from scratch.
 * There was some difficulty in using the curl command (for POST requests) on mininet. On changing the IP address of the hosted website we got the curl command to work properly on mininet.
 
